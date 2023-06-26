@@ -1,0 +1,39 @@
+:host {
+  width: 100%;
+}
+
+.posts {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+  width: 100%;
+
+  .post {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+    cursor: pointer;
+    padding: 12px;
+
+    .heading {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      flex: 1 1;
+
+      .title {
+        font-weight: bold;
+      }
+
+      .created {
+        align-self: flex-end;
+      }
+    }
+
+    .name {
+      font-size: 80%;
+      text-transform: uppercase;
+      color: gray;
+    }
+  }
+}
