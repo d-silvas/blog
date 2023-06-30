@@ -23,6 +23,7 @@ logging:
     root: info
     org.hibernate: info
     org.springframework.jdbc: info
+    org.flywaydb: trace
 #    org:
 #      hibernate:
 #        SQL: debug

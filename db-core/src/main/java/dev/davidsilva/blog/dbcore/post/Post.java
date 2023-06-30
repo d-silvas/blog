@@ -1,22 +1,15 @@
 package dev.davidsilva.blog.dbcore.post;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.StreamUtils;
-import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.nio.charset.Charset;
 import java.time.Instant;
 
-@Getter
-@Setter
 @Entity
 @Table(
         name = "posts",
@@ -44,9 +37,40 @@ public class Post {
     @Transient
     private String summary;
 
-
     @Transient
     private String content;
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Instant getCreated() {
+        return created;
+    }
+
+    public void setCreated(Instant created) {
+        this.created = created;
+    }
 
     public String getContent() {
         try {
@@ -67,14 +91,10 @@ public class Post {
         return content.substring(0, Math.min(maxChars, content.length()));
     }
 
-    public int read(Reader reader, char[] chars) throws IOException {
-        return reader.read(chars);
-    }
-
     private InputStream getFileInputStream() throws IOException {
         return new ClassPathResource(this.getLocation()).getInputStream();
     }
-
+    
     public interface Views {
         interface Id {
         }

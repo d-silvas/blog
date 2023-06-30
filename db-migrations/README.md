@@ -2,6 +2,7 @@
 - Links
     - https://flywaydb.org/documentation/getstarted/firststeps/maven
     - https://flywaydb.org/documentation/tutorials/java
+    - https://flywaydb.org/documentation/tutorials/java#creating-a-java-based-migrations
 - Note that Flyway runs automatically on `mvn spring-boot:run`, if we
   import `flyway-core` into our `pom.xml`. See https://flywaydb.org/documentation/usage/plugins/springboot.
 
