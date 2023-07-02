@@ -12,6 +12,12 @@
         <module name="db-migrations" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blog" target="20" />
+      <module name="blog-db-core" target="20" />
+      <module name="blog-db-migrations" target="20" />
+      <module name="blogproject" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

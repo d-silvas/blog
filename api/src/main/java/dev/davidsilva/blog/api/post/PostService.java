@@ -28,7 +28,7 @@ public class PostService {
         return postDao.findAll();
     }
 
-    public Post findById(Long id) {
+    public Post findById(Integer id) {
         return postDao.findById(id).orElseThrow(() ->
                 new PostNotFoundException(id)
         );

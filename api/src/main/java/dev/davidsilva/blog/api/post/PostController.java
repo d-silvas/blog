@@ -57,7 +57,7 @@ public class PostController {
 
     @GetMapping("/{id}")
     //@JsonView(PostViews.Single.class)
-    public ResponseEntity<Post> getPostById(@PathVariable("id") Long id) {
+    public ResponseEntity<Post> getPostById(@PathVariable("id") Integer id) {
         Post post = postService.findById(id);
         return new ResponseEntity<>(post, HttpStatus.OK);
     }
