@@ -1,25 +1,16 @@
 package dev.davidsilva.blog.dbcore.search;
 
-public class SearchCriteria {
-    private final String key;
-    private final String operation;
-    private final String value;
+import java.util.ArrayList;
+import java.util.List;
 
-    public SearchCriteria(String key, String operation, String value) {
-        this.key = key;
-        this.operation = operation;
-        this.value = value;
-    }
+public interface SearchCriteria extends List<SearchCriterion> {
+    class Builder {
+        public static SearchCriteria create() {
+            return new SearchCriteriaImpl();
+        }
 
-    public String getKey() {
-        return key;
-    }
-
-    public String getOperation() {
-        return operation;
-    }
-
-    public String getValue() {
-        return value;
+        private static class SearchCriteriaImpl extends ArrayList<SearchCriterion> implements SearchCriteria {
+            // TODO here we can implement different stuff like for example AND/OR groupings (now, all items in the ArrayList will be joined by AND)
+        }
     }
 }

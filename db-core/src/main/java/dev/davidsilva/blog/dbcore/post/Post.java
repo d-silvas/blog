@@ -7,20 +7,17 @@ import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.time.Instant;
 
 @Entity
-@Table(
-        name = "posts",
-        schema = "public",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"location"})
-        }
-)
-public class Post {
+@Table(name = "posts", schema = "public")
+@Access(AccessType.FIELD)
+public class Post implements Serializable {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "title")
@@ -33,7 +30,6 @@ public class Post {
     @Column(name = "created")
     private Instant created;
 
-    @Column(name = "summary")
     @Transient
     private String summary;
 
@@ -94,7 +90,7 @@ public class Post {
     private InputStream getFileInputStream() throws IOException {
         return new ClassPathResource(this.getLocation()).getInputStream();
     }
-    
+
     public interface Views {
         interface Id {
         }
