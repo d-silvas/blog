@@ -5,6 +5,8 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
+import java.util.Collection;
+
 public class SearchCriterion {
     private final String propertyName;
     private final Operator operator;
@@ -44,8 +46,82 @@ public class SearchCriterion {
         },
         LT {
             @Override
+            @SuppressWarnings("unchecked")
             public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
-                return b.lessThan(r.<Comparable>get(c.getPropertyName()), Operator.getComparable(c));
+                return b.lessThan(r.get(c.getPropertyName()), (Comparable<Object>) Operator.getComparable(c));
+            }
+        },
+        LTE {
+            @Override
+            @SuppressWarnings("unchecked")
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return b.lessThanOrEqualTo(r.get(c.getPropertyName()), (Comparable<Object>) Operator.getComparable(c));
+            }
+        },
+        GT {
+            @Override
+            @SuppressWarnings("unchecked")
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return b.greaterThan(r.get(c.getPropertyName()), (Comparable<Object>) Operator.getComparable(c));
+            }
+        },
+        GTE {
+            @Override
+            @SuppressWarnings("unchecked")
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return b.greaterThanOrEqualTo(
+                        r.get(c.getPropertyName()), (Comparable<Object>) Operator.getComparable(c)
+                );
+            }
+        },
+        LIKE {
+            @Override
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return b.like(
+                        r.get(c.getPropertyName()), getString(c)
+                );
+            }
+        },
+        NOT_LIKE {
+            @Override
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return b.notLike(
+                        r.get(c.getPropertyName()), getString(c)
+                );
+            }
+        },
+        IN {
+            @Override
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                Object o = c.getCompareTo();
+                if (o == null)
+                    return r.get(c.getPropertyName()).in();
+                if (o instanceof Collection)
+                    return r.get(c.getPropertyName()).in((Collection<?>) o);
+                throw new IllegalArgumentException(c.getPropertyName());
+            }
+        },
+        NOT_IN {
+            @Override
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                Object o = c.getCompareTo();
+                if (o == null)
+                    return b.not(r.get(c.getPropertyName()).in());
+                if (o instanceof Collection)
+                    return b.not(r.get(c.getPropertyName()).in((Collection<?>) o));
+                throw new IllegalArgumentException(c.getPropertyName());
+            }
+        },
+        NULL {
+            @Override
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return r.get(c.getPropertyName()).isNull();
+            }
+        },
+        NOT_NULL {
+            @Override
+            public Predicate toPredicate(SearchCriterion c, Root<?> r, CriteriaBuilder b) {
+                return r.get(c.getPropertyName()).isNotNull();
             }
         };
 

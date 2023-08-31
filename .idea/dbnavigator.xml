@@ -82,13 +82,15 @@
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
           <database-version value="15.3" />
-          <driver-source value="BUILTIN" />
+          <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5432" />
           <database value="blogdb" />
+          <tns-folder value="" />
+          <tns-profile value="" />
           <type value="USER_PASSWORD" />
           <user value="postgres" />
           <deprecated-pwd value="MTIz" />

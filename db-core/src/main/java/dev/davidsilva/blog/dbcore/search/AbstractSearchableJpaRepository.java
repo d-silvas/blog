@@ -20,7 +20,7 @@ import static org.springframework.data.jpa.repository.query.QueryUtils.toOrders;
  * https://docs.oracle.com/javaee/6/tutorial/doc/gjrij.html
  * https://www.objectdb.com/java/jpa/query/criteria
  */
-abstract class AbstractSearchableJpaRepository<T> extends AbstractDomainClassAwareRepository<T> implements SearchableRepository<T> {
+public abstract class AbstractSearchableJpaRepository<T> extends AbstractDomainClassAwareRepository<T> implements SearchableRepository<T> {
     @PersistenceContext
     protected EntityManager entityManager;
 
@@ -54,7 +54,8 @@ abstract class AbstractSearchableJpaRepository<T> extends AbstractDomainClassAwa
                 ).setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())
                 .getResultList();
-
+        // From book: "Remember that the list returned by the JPA provider may be lazy-loaded and thus
+        // won’t populate until iterated. This is why the code wraps the list in a new ArrayList"
         return new PageImpl<>(new ArrayList<>(list), pageable, total);
     }
 }

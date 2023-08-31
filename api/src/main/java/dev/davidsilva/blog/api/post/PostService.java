@@ -4,6 +4,7 @@ package dev.davidsilva.blog.api.post;
 import dev.davidsilva.blog.dbcore.post.Post;
 import dev.davidsilva.blog.dbcore.post.PostDao;
 import dev.davidsilva.blog.dbcore.post.PostSpecification;
+import dev.davidsilva.blog.dbcore.search.SearchCriteria;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,5 +33,9 @@ public class PostService {
         return postDao.findById(id).orElseThrow(() ->
                 new PostNotFoundException(id)
         );
+    }
+
+    public Page<Post> searchPosts(SearchCriteria searchCriteria, Pageable pageable) {
+        return postDao.search(searchCriteria, pageable);
     }
 }
