@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://blog.davidsilva.dev/api/v1',
+  // TODO make build system replace this URL
+  apiUrl: 'https://blog.davidsilva.dev/api/v1',
 };
