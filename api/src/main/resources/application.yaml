@@ -34,3 +34,11 @@ logging:
           core:
             jdbcTemplate: debug
             statementCreatorUtils: trace
+
+# TODO remove this !
+spring:
+  security:
+    user:
+      name: qqq
+      password: qqq
+# Please see https://reflectoring.io/spring-security/
