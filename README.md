@@ -5,11 +5,11 @@
 - [p569] `uniqueConstraints` and `indexes` are only used when schema generation is
   enabled. We should NOT specify them if schema generation is disabled (the default).
 - [p569] Schema generation is "dangerous" so we should always do it manually.
-- [p569]  As per the book, `@Access(AccessType.PROPERTY)` is better than `FIELD`. As per
+- [p569] As per the book, `@Access(AccessType.PROPERTY)` is better than `FIELD`. As per
   https://www.java4coding.com/contents/jpa/jpa-access-annotation, Access is taken from
   wherever you put the `@Id`. To stick to the book's recommendation, I'll be adding
   JPA annotations to getters/setters instead of to properties.
-- Plot twist!! Going back to `FILE` because otherwise Jackson will try to serialize
+- Plot twist!! Going back to `FIELD` because otherwise Jackson will try to serialize
   `getFileInputStream`.
 
 ## TO DO
@@ -60,7 +60,10 @@
 ## To remember (devops)
 
 - Hardcoded stuff
-    - Db credentials are in `config/database.env`, and all the `application.yaml` files.
+  <<<<<<< HEAD - Db credentials are in `config/database.env`, and all the `application.yaml` files.
+  =======
+  - Db credentials are in `config/database.env`, and all the `application.yaml` files.
+    > > > > > > > updates
 
 ## TODO !!
 

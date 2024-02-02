@@ -7,23 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="db-core" />
+        <module name="migrations" />
         <module name="api" />
-        <module name="db-migrations" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="blog" target="20" />
-      <module name="blog-db-core" target="20" />
-      <module name="blog-db-migrations" target="20" />
-      <module name="blogproject" target="1.5" />
+      <module name="blogapp" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api" options="-parameters" />
-      <module name="db-core" options="-parameters" />
-      <module name="db-migrations" options="-parameters" />
+      <module name="migrations" options="-parameters" />
     </option>
   </component>
 </project>
