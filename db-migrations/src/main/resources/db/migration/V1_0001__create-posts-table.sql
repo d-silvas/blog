@@ -1,7 +1,0 @@
-CREATE TABLE public.posts (
-    id SERIAL PRIMARY KEY,
-    created TIMESTAMP(6) WITH TIME ZONE,
-    published TIMESTAMP(6) WITH TIME ZONE,
-    location VARCHAR NOT NULL,
-    title VARCHAR UNIQUE NOT NULL
-);
