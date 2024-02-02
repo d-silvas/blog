@@ -1,0 +1,28 @@
+<div class="posts">
+  <mat-card
+    class="post"
+    (click)="onPostSelected(post)"
+    *ngFor="let post of posts$ | async"
+  >
+    <div class="heading">
+      <h2 class="title">
+        {{ post.title }}
+      </h2>
+      <span class="created">
+        {{ post.created | date }}
+      </span>
+    </div>
+    <span class="content">
+      <markdown [data]="post.content"></markdown>
+    </span>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [pageIndex]="pageIndex$ | async"
+  [pageSize]="size$ | async"
+  [length]="totalElements$ | async"
+  [showFirstLastButtons]="true"
+  (page)="paginateList($event)"
+>
+</mat-paginator>

@@ -1,0 +1,32 @@
+server:
+  # TODO I believe that by default Spring always opens a port although this is not desirable for this project
+  port: 8091
+  error:
+    include-message: always
+  servlet:
+    context-path: /api/v1
+
+spring:
+  datasource:
+    password: password
+    url: jdbc:mysql://localhost:3306/blog
+    username: user
+
+logging:
+  level:
+    root: info
+    org.hibernate: info
+    org.springframework.jdbc: info
+    org.flywaydb: trace
+#    org:
+#      hibernate:
+#        SQL: debug
+#        type:
+#          descriptor:
+#            sql:
+#              basicBinder: trace
+#      springframework:
+#        jdbc:
+#          core:
+#            jdbcTemplate: debug
+#            statementCreatorUtils: trace

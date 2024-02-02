@@ -1,0 +1,31 @@
+version: "3.7"
+name: dev_davidsilva_blog_db
+services:
+  database:
+    container_name: dev_davidsilva_blog_db
+    image: mysql:8
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: blog
+    ports:
+      # HOST:CONTAINER
+      - "3306:3306"
+    volumes:
+      - type: volume
+        source: blog_db_volume
+        target: /var/lib/mysql
+      - ./database:/database
+    # log-bin-trust-function-creators
+    #   - Fix for errors that started showing after the MySQL 8 update
+    #   - See https://stackoverflow.com/questions/56389698/why-super-privileges-are-disabled-when-binary-logging-option-is-on
+    # explicit_defaults_for_timestamp
+    #   - Another fix for MySQL 8.
+    command: "--log-bin-trust-function-creators=1 --explicit_defaults_for_timestamp=0"
+    # Use the following if you want sql statements to be logged to a file (./database/mysql.log under this same directory)
+    # command: "--log-bin-trust-function-creators=1 --explicit_defaults_for_timestamp=0 --general-log=1 --general-log-file=/database/mysql.log"
+volumes:
+  blog_db_volume:
+    external: false
+    name: dev_davidsilva_blog_db

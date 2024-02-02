@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+  servlet:
+    context-path: /api/v1
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    password: password
+    url: jdbc:mysql://localhost:3306/blog
+    username: user
+
+logging:
+  level:
+    root: info
+    org.hibernate: info
+    org.springframework.jdbc: info
+    # https://www.baeldung.com/sql-logging-spring-boot
+    # https://stackoverflow.com/questions/30118683/how-can-i-log-sql-statements-in-spring-boot
+    # https://stackoverflow.com/questions/74862254/how-to-log-sql-statements-with-query-param-values-in-spring-boot-3-hibernate-6/74862954#74862954
+    # https://stackoverflow.com/a/74587796/10997015
+    org:
+      hibernate:
+        SQL: debug
+        orm:
+          jdbc:
+            bind: trace
+      springframework:
+        jdbc:
+          core:
+            jdbcTemplate: debug
+            statementCreatorUtils: trace
