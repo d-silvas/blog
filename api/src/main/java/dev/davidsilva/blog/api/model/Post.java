@@ -3,6 +3,7 @@ package dev.davidsilva.blog.api.model;
 import dev.davidsilva.blog.api.exception.PostContentNotFoundException;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.StreamUtils;
 
@@ -29,6 +30,7 @@ public class Post {
     @Column(name = "location")
     private String location;
 
+    @CreationTimestamp
     @Column(name = "created")
     private Instant created;
 
