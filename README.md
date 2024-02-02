@@ -60,10 +60,7 @@
 ## To remember (devops)
 
 - Hardcoded stuff
-  <<<<<<< HEAD - Db credentials are in `config/database.env`, and all the `application.yaml` files.
-  =======
-  - Db credentials are in `config/database.env`, and all the `application.yaml` files.
-    > > > > > > > updates
+  - Db credentials are in `docker-compose.yaml`, and all the `application.yaml` files.
 
 ## TODO !!
 
