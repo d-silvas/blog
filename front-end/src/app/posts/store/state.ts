@@ -1,15 +1,12 @@
-import { ApiPageableResourceRequest } from '../../api/api-pageable-resource-request';
-import { AppState } from '../../store/state';
-import { PostSummary } from '../post-summary';
+import type { AppState } from '../../store/state';
+import type { PostsListState } from '../posts-list/store/state';
+import { PostsViewState } from '../posts-view/store/state';
 
 export interface PostsRootState extends AppState {
   posts: PostsState;
 }
 
 export interface PostsState {
-  posts: ApiPageableResourceRequest<PostSummary>;
+  list: PostsListState;
+  view: PostsViewState;
 }
-
-export const postsInitialState: PostsState = {
-  posts: { data: null, loading: false, error: null },
-};

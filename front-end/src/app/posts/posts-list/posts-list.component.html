@@ -12,10 +12,7 @@
         {{ post.created | date }}
       </span>
     </div>
-    <span class="content">
-      <!-- TODO -->
-      {{ post.summary }}
-    </span>
+    <div class="content">{{ post.summary | stripHtml }}</div>
   </mat-card>
 </div>
 

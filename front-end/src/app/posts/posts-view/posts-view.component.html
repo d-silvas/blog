@@ -1,0 +1,13 @@
+<div class="post-wrapper">
+  <mat-card class="post" *ngIf="post$ | async as post">
+    <div class="heading">
+      <h2 class="title">
+        {{ post.title }}
+      </h2>
+      <span class="created">
+        {{ post.created | date }}
+      </span>
+    </div>
+    <div class="content" [innerHTML]="post.content | safeHtml"></div>
+  </mat-card>
+</div>

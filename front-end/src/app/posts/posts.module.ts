@@ -1,21 +1,25 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostsComponent } from './posts.component';
-import { UiModule } from '../ui';
-import { StoreModule } from '@ngrx/store';
-import { postsReducer } from './store/reducers';
+import { NgModule } from '@angular/core';
+
 import { EffectsModule } from '@ngrx/effects';
-import { PostsEffects } from './store/effects';
+import { StoreModule } from '@ngrx/store';
+
+import { UiModule } from '../ui';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { PostsListEffects } from './posts-list/store/effects';
 import { PostsRoutingModule } from './posts-routing.module';
+import { PostsViewComponent } from './posts-view/posts-view.component';
+import { PostsViewEffects } from './posts-view/store/effects';
+import { postsReducer } from './store/reducers';
 
 @NgModule({
-  declarations: [PostsComponent],
+  declarations: [PostsListComponent, PostsViewComponent],
   imports: [
     CommonModule,
     PostsRoutingModule,
     UiModule,
     StoreModule.forFeature('posts', postsReducer),
-    EffectsModule.forFeature([PostsEffects]),
+    EffectsModule.forFeature([PostsListEffects, PostsViewEffects]),
   ],
 })
 export class PostsModule {}

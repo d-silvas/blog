@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { PostSummaryDto } from './post-summary-dto';
-import { PostSummary } from './post-summary';
+import type { PostSummary, PostSummaryDto } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class PostSummaryMapperService {
@@ -10,7 +9,7 @@ export class PostSummaryMapperService {
       id: postSummaryDto.id,
       created: postSummaryDto.created,
       title: postSummaryDto.title,
-      summary: postSummaryDto.summary,
+      summary: postSummaryDto.summary + '&hellip;',
     };
   }
 }

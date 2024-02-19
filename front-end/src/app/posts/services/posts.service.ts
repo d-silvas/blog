@@ -1,15 +1,15 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { PageableResource } from '../api/api-pageable-resource-request';
-import { ApiService } from '../api/api.service';
+import type { PageableResource } from '@api/models';
+import { ApiService } from '@api/services';
+
+import type { Post, PostDto, PostSummary, PostSummaryDto } from '../models';
 import { PostMapperService } from './post-mapper.service';
-import { PostSummary } from './post-summary';
-import { PostSummaryDto } from './post-summary-dto';
 import { PostSummaryMapperService } from './post-summary-mapper.service';
 
 @Injectable({ providedIn: 'root' })
@@ -27,16 +27,7 @@ export class PostsService {
     return this._http
       .get<PageableResource<PostSummaryDto>>(
         this._apiService.createApiUrl('posts'),
-        {
-          params: pageEvent
-            ? new HttpParams({
-                fromObject: {
-                  page: pageEvent.pageIndex,
-                  size: pageEvent.pageSize,
-                },
-              })
-            : undefined,
-        }
+        { params: this._apiService.createPaginationHttpParams(pageEvent) }
       )
       .pipe(
         map((postsResource: PageableResource<PostSummaryDto>) => ({
@@ -46,5 +37,11 @@ export class PostsService {
           ),
         }))
       );
+  }
+
+  getPost(id: number): Observable<Post> {
+    return this._http
+      .get<PostDto>(this._apiService.createApiUrl(`posts/${id}`))
+      .pipe(map((postDto: PostDto) => this._postMapperService.map(postDto)));
   }
 }

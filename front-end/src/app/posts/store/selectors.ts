@@ -1,29 +1,15 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { PostsState } from './state';
+import type { PostsState } from './state';
 
 export const getPostsState = createFeatureSelector<PostsState>('posts');
 
-/**
- * @TODO defaults ??
- */
-
-export const getPosts = createSelector(
+export const getPostsListState = createSelector(
   getPostsState,
-  (state: PostsState) => state.posts.data?.content || []
+  (state: PostsState) => state.list
 );
 
-export const getPageIndex = createSelector(
+export const getPostsViewState = createSelector(
   getPostsState,
-  (state: PostsState) => state.posts.data?.page || 0
-);
-
-export const getSize = createSelector(
-  getPostsState,
-  (state: PostsState) => state.posts.data?.size || 10
-);
-
-export const getTotalElements = createSelector(
-  getPostsState,
-  (state: PostsState) => state.posts.data?.totalElements || 0
+  (state: PostsState) => state.view
 );

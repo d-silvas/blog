@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DecimalPipe } from '@angular/common';
-import { FinancialNumberPipe } from './financial-number.pipe';
-
-
+import { CommonModule } from '@angular/common';
+import { SafeHtmlPipe } from './safe-html.pipe';
+import { StripHtmlPipe } from './strip-html.pipe';
 
 @NgModule({
-  declarations: [FinancialNumberPipe],
-  providers: [DecimalPipe],
-  imports: [
-    CommonModule,
-  ],
-  exports: [FinancialNumberPipe]
+  declarations: [SafeHtmlPipe, StripHtmlPipe],
+  imports: [CommonModule],
+  exports: [SafeHtmlPipe, StripHtmlPipe],
 })
-export class PipesModule { }
+export class PipesModule {}

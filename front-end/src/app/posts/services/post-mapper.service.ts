@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Post } from './post';
-import { PostDto } from './post-dto';
+import type { Post, PostDto } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class PostMapperService {
