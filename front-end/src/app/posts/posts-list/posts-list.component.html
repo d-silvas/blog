@@ -5,22 +5,24 @@
     *ngFor="let post of posts$ | async"
   >
     <div class="heading">
-      <h2 class="title">
+      <h1 class="title">
         {{ post.title }}
-      </h2>
-      <span class="created">
+      </h1>
+      <div class="created">
         {{ post.created | date }}
-      </span>
+      </div>
     </div>
     <div class="content">{{ post.summary | stripHtml }}</div>
   </mat-card>
 </div>
 
-<mat-paginator
-  [pageIndex]="pageIndex$ | async"
-  [pageSize]="size$ | async"
-  [length]="totalElements$ | async"
-  [showFirstLastButtons]="true"
-  (page)="paginateList($event)"
->
-</mat-paginator>
+<mat-card>
+  <mat-paginator
+    [pageIndex]="pageIndex$ | async"
+    [pageSize]="size$ | async"
+    [length]="totalElements$ | async"
+    [showFirstLastButtons]="true"
+    (page)="paginateList($event)"
+  >
+  </mat-paginator>
+</mat-card>

@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  // https://colorhunt.co/palette/40a2e3fff6e9bbe2ec0d9276
+  --primary-color: #40a2e3;
+  --primary-color-light: #bbe2ec;
+  --bg-color: #fff6e9;
+  --secondary-color: #0d9276;
+}
+
 html,
 body {
   height: 100%;
@@ -7,4 +15,13 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }

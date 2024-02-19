@@ -1,25 +1,8 @@
-<mat-toolbar>
-  <!-- <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button> -->
-  <a routerLink="/">Blog</a>
-  <span class="spacer"></span>
-  <!-- <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button> -->
-</mat-toolbar>
+<div class="navigation">
+  <nav class="main-bar">
+    <a [routerLink]="'/'">Dev Blog</a>
+  </nav>
+  <nav class="secondary-bar">
+    <a [routerLink]="'/posts'">All Posts</a>
+  </nav>
+</div>
