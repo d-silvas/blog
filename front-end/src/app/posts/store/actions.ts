@@ -2,7 +2,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { createAction, props } from '@ngrx/store';
 
 import { PageableResource } from '../../api/api-pageable-resource-request';
-import { Post } from '../post';
+import { PostSummary } from '../post-summary';
 
 export enum PostsActionTypes {
   loadPosts = '[Posts] Load Posts',
@@ -11,11 +11,14 @@ export enum PostsActionTypes {
   reset = '[Posts] Reset',
 }
 
-export const loadPosts = createAction(PostsActionTypes.loadPosts, props<{ pageEvent: PageEvent | null }>());
+export const loadPosts = createAction(
+  PostsActionTypes.loadPosts,
+  props<{ pageEvent: PageEvent | null }>()
+);
 
 export const loadPostsSuccess = createAction(
   PostsActionTypes.loadPostsSuccess,
-  props<{ posts: PageableResource<Post> }>()
+  props<{ posts: PageableResource<PostSummary> }>()
 );
 
 export const loadPostsFail = createAction(

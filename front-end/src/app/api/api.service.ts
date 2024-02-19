@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-
 @Injectable({ providedIn: 'root' })
 export class ApiService {
   private readonly _url = environment.apiUrl;

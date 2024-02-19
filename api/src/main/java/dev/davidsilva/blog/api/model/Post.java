@@ -95,25 +95,4 @@ public class Post {
     private InputStream getFileInputStream() throws IOException {
         return new ClassPathResource(this.getLocation()).getInputStream();
     }
-
-    // TODO use JsonView
-    public interface Views {
-        interface Id {
-        }
-
-        interface Title {
-        }
-
-        interface Location {
-        }
-
-        interface Created {
-        }
-
-        interface Summary {
-        }
-
-        interface Content {
-        }
-    }
 }

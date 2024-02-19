@@ -1,9 +1,6 @@
 package dev.davidsilva.blog.api.service;
 
-import dev.davidsilva.blog.api.dto.ListMapper;
-import dev.davidsilva.blog.api.dto.PaginatedResponse;
-import dev.davidsilva.blog.api.dto.PostDto;
-import dev.davidsilva.blog.api.dto.PostDtoMapper;
+import dev.davidsilva.blog.api.dto.*;
 import dev.davidsilva.blog.api.exception.ResourceNotFoundException;
 import dev.davidsilva.blog.api.model.Post;
 import dev.davidsilva.blog.api.repository.PostRepository;
@@ -20,10 +17,13 @@ public class PostServiceDefault implements PostService {
 
     private final PostDtoMapper postDtoMapper;
 
+    private final PostSummaryDtoMapper postSummaryDtoMapper;
+
     @Autowired
-    public PostServiceDefault(PostRepository postRepository, PostDtoMapper postDtoMapper) {
+    public PostServiceDefault(PostRepository postRepository, PostDtoMapper postDtoMapper, PostSummaryDtoMapper postSummaryDtoMapper) {
         this.postRepository = postRepository;
         this.postDtoMapper = postDtoMapper;
+        this.postSummaryDtoMapper = postSummaryDtoMapper;
     }
 
     @Override
@@ -39,6 +39,16 @@ public class PostServiceDefault implements PostService {
         Pageable pageable = PageRequest.of(page, size, sort);
         Page<Post> postsPage = postRepository.findAll(pageable);
         ListMapper<Post, PostDto> mapper = (posts) -> posts.stream().map(postDtoMapper::toDto).toList();
+        return PaginatedResponse.fromPage(postsPage, mapper);
+    }
+
+    @Override
+    public PaginatedResponse<PostSummaryDto> getAllPostsSummarized(int page, int size, String sortBy, String sortDirection) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name())
+                ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+        Page<Post> postsPage = postRepository.findAll(pageable);
+        ListMapper<Post, PostSummaryDto> mapper = (posts) -> posts.stream().map(postSummaryDtoMapper::toDto).toList();
         return PaginatedResponse.fromPage(postsPage, mapper);
     }
 

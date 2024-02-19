@@ -1,7 +1,7 @@
-INSERT INTO posts (created, published, location, title)
-VALUES (
+insert into posts (created, published, location, title)
+values (
     '2020-10-01 12:34:56',
     '2020-10-01 12:34:56',
-    'posts/01.md',
+    'posts/01.html',
     'Type narrowing in Typescript'
 );

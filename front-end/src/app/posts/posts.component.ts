@@ -1,10 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Post } from './post';
 import * as postsSelectors from './store/selectors';
 import * as postsActions from './store/actions';
 import { PageEvent } from '@angular/material/paginator';
+import { PostSummary } from './post-summary';
 
 @Component({
   selector: 'app-posts',
@@ -12,12 +12,10 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-  posts$: Observable<Post[]>;
+  posts$: Observable<PostSummary[]>;
   pageIndex$: Observable<number>;
   size$: Observable<number>;
   totalElements$: Observable<number>;
-
-  @Output() postSelected = new EventEmitter<Post>();
 
   constructor(private readonly _store: Store) {
     this.posts$ = this._store.pipe(select(postsSelectors.getPosts));
@@ -44,7 +42,7 @@ export class PostsComponent implements OnInit {
     this._store.dispatch(postsActions.loadPosts({ pageEvent }));
   }
 
-  onPostSelected(post: Post) {
-    this.postSelected.next(post);
+  onPostSelected(post: PostSummary) {
+    console.log('post selected', post);
   }
 }

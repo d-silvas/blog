@@ -16,12 +16,9 @@ public class PostDto {
     private String title;
 
     private Instant created;
-
-    @NotEmpty(message = "'description' is required")
-    @Size(min = 10, message = "'description' should have at least 10 characters")
-    private String description;
-
+    
     @NotEmpty(message = "'content' is required")
+    @Size(min = 10, message = "'content' should have at least 10 characters")
     private String content;
 
     private String summary;

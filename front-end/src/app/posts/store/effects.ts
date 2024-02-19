@@ -7,6 +7,7 @@ import { PageableResource } from '../../api/api-pageable-resource-request';
 import { Post } from '../post';
 import * as postsActions from './actions';
 import { PostsService } from '../posts.service';
+import { PostSummary } from '../post-summary';
 
 @Injectable()
 export class PostsEffects {
@@ -17,7 +18,7 @@ export class PostsEffects {
         this._postsService
           .getPosts(pageEvent)
           .pipe(
-            map((posts: PageableResource<Post>) =>
+            map((posts: PageableResource<PostSummary>) =>
               postsActions.loadPostsSuccess({ posts })
             )
           )
@@ -28,5 +29,5 @@ export class PostsEffects {
   constructor(
     private readonly _actions$: Actions,
     private readonly _postsService: PostsService
-  ) { }
+  ) {}
 }

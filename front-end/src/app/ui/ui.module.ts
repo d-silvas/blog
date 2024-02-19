@@ -11,20 +11,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PipesModule } from './pipes/pipes.module';
 import { TopbarComponent } from './topbar/topbar.component';
-import { MarkdownModule } from 'ngx-markdown';
-import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [TopbarComponent],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    // I believe the following works because we have provided
-    // HttpClientModule in AppModule
-    MarkdownModule.forRoot({ loader: HttpClient }),
-  ],
+  imports: [CommonModule, MatToolbarModule, MatButtonModule, MatIconModule],
   exports: [
     MatIconModule,
     MatButtonModule,
@@ -36,7 +26,6 @@ import { HttpClient } from '@angular/common/http';
     MatTabsModule,
     PipesModule,
     TopbarComponent,
-    MarkdownModule,
   ],
 })
 export class UiModule {}

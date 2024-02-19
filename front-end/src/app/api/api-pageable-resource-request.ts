@@ -1,8 +1,10 @@
 export interface PageableResource<T> {
   content: T[];
-  number: number;
+  page: number;
   size: number;
   totalElements: number;
+  totalPages: number;
+  isLast: boolean;
 }
 
 export interface ApiPageableResourceRequest<T> {

@@ -15,7 +15,7 @@ export const getPosts = createSelector(
 
 export const getPageIndex = createSelector(
   getPostsState,
-  (state: PostsState) => state.posts.data?.number || 0
+  (state: PostsState) => state.posts.data?.page || 0
 );
 
 export const getSize = createSelector(

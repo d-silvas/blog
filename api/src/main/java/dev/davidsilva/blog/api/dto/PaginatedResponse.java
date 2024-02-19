@@ -1,18 +1,28 @@
 package dev.davidsilva.blog.api.dto;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-@Getter
 public class PaginatedResponse<T> {
-    int page;
-    int size;
-    long totalElements;
-    int totalPages;
-    boolean isLast;
+    @JsonProperty(value = "content")
     private final List<T> content;
+
+    @JsonProperty(value = "page")
+    int page;
+
+    @JsonProperty(value = "size")
+    int size;
+
+    @JsonProperty(value = "totalElements")
+    long totalElements;
+
+    @JsonProperty(value = "totalPages")
+    int totalPages;
+
+    @JsonProperty(value = "isLast")
+    boolean isLast;
 
     public PaginatedResponse(int page, int size, long totalElements, int totalPages, boolean isLast, List<T> content) {
         this.page = page;
