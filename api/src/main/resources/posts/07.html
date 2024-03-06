@@ -10,13 +10,58 @@
   </ul>
 </div>
 
-<details style="font-style: italic;">
-  <summary>Hint</summary>
-  Condition on the number of heads in the first \(n+m\) flips.
-</details>
+<p>
+  Note that the minimum value \(N\) can take is \(n + m\). We won't use this
+  info for our calculations, though.
+</p>
+<p>
+  Let \(H :=\) "Number of heads in the first \(n + m\) flips". \(H\) has
+  clearly a binomial distribution \(B(m+n, p)\). Therefore,
+</p>
+\begin{align}
+  P\{H = h\} = {m + n \choose h} p^h (1-p)^{m+n-h}
+\end{align}
+
+<p>
+  To calculate the expected value of \(N\), condition on \(H\):
+</p>
+\begin{align}
+  E[N] &= \sum_{h=0}^{n+m} E\left[N \mid H=h\right] P\{H=h\} = \\
+  &= \sum_{h=0}^{n-1} P\{H=h\} E\left[N \mid H=h\right] +
+  P\{H = n\} E\left[N \mid H=n\right] +  \\
+  &\qquad + \sum_{h=n}^{n + m} P\{H = h\} E\left[N \mid H=h\right]
+\end{align}
+
+<p>
+  There are three different scenarios. To think about them, let's build
+  a particular example. Let's set \(n = 3\)  and \(m = 2\). Then, we
+  are looking for \(N\)="Number of flips until we have obtained both
+  at least \(n = 3\) heads and at least \(m = 2\) tails". We will
+  be conditioning on \(h\) = "Number of heads obtained in the first
+  \(5\) flips". The three scenarios are:
+</p>
+<div>
+  <ul>
+    <li>
+      \(h \in \{0, \ldots, n - 1\}\)
+      <ul>
+        <li>
+          For example, let's think of the particular case \(h = 2\). 
+          We have obtained 2 heads and 3 tails in our first 5 flips.
+          For example, valid sequences of flips are: (⭘, ⭘, ×, ×, ×),
+          (⭘, ×, ⭘, ×, ×), (⭘, ×, ×, ⭘, ×), and so on.
+        </li>
+        <li>
+          In these sequences... (TODO)
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
 
 <details>
-  <summary>Other solutions</summary>
+  <summary style="font-style: italic;">Other solutions</summary>
   https://math.stackexchange.com/questions/4651017/expected-number-of-flips-to-obtain-n-heads-and-m-tails
 </details>
 
