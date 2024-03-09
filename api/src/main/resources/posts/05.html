@@ -81,7 +81,7 @@ We define a probability space \((\Omega, \mathcal{F}, P)\) as follows:
   \end{align}
 </p>
 <p>
-  The prbability us uniform so it's very easy to see that these definitions
+  The probability us uniform so it's very easy to see that these definitions
   fulfill the above requirements.
 </p>
 
@@ -89,11 +89,13 @@ We define a probability space \((\Omega, \mathcal{F}, P)\) as follows:
 <p>
   The last requirement does not make sense in a real scenario. If true, that would
   imply for example that \( P\{X_2 = 1 \mid N = 1\} = P\{ X_2 = 1\} = 1/2\).
-  But, how is the result of the third throw going to be 1, if we have only threw the
-  die twice!?
+  We are saying that the probability that the 2nd throw results in a \(1\),
+  given that we threw the die only once, is \(1/2\). This obviously does not
+  make sense. We would like the probability of the 2nd throw being any value,
+  given that we threw the die only once, to be \(0\).
 </p>
 <p>
-  Instead, to represent reality, we would like to <strong>remove</strong>
+  Therefore, to represent reality, we would like to <strong>remove</strong>
   the following requirement:
 </p>
 <div style="font-weight:bold;">
