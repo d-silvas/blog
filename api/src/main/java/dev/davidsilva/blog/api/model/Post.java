@@ -34,12 +34,15 @@ public class Post {
     @Column(name = "created")
     private Instant created;
 
+    @OneToOne
+    @JoinColumn(name = "category_name", referencedColumnName = "name")
+    private String categoryName;
+
     @Transient
     private String summary;
 
     @Transient
     private String content;
-
 
     public Integer getId() {
         return id;
@@ -71,6 +74,14 @@ public class Post {
 
     public void setCreated(Instant created) {
         this.created = created;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     /**

@@ -4,5 +4,7 @@ CREATE TABLE posts (
     published DATETIME,
     location VARCHAR(1024) NOT NULL,
     title VARCHAR(512) NOT NULL,
-    UNIQUE(title)
+    category_name VARCHAR(127),
+    UNIQUE(title),
+    FOREIGN KEY (category_name) REFERENCES categories(name)
 );
