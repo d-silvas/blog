@@ -1,33 +1,23 @@
 package dev.davidsilva.blog.api.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 @Entity
 @Table(name = "categories")
 @Access(AccessType.FIELD)
 public class Category {
+    @Getter
+    @Setter
     @Id
     @Column(name = "name")
     private String name;
 
+    @Getter
+    @Setter
     @Column(name = "description")
     private String description;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

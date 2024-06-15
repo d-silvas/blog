@@ -12,6 +12,7 @@ public class PostDtoMapper implements DtoMapper<PostDto, Post> {
         postDto.setCreated(post.getCreated());
         postDto.setContent(post.getContent());
         postDto.setSummary(post.getSummary());
+        postDto.setCategory(post.getCategory().getName());
         return postDto;
     }
 

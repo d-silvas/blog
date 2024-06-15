@@ -2,7 +2,9 @@ package dev.davidsilva.blog.api.model;
 
 import dev.davidsilva.blog.api.exception.PostContentNotFoundException;
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.StreamUtils;
@@ -17,6 +19,8 @@ import java.time.Instant;
 @Table(name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})})
 @Access(AccessType.FIELD)
 public class Post {
+    @Getter
+    @Setter
     @Id
     @Column(name = "id")
     // The db is in charge of auto-incrementing this value. See
@@ -24,65 +28,33 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Getter
+    @Setter
     @Column(name = "title")
     private String title;
 
+    @Getter
+    @Setter
     @Column(name = "location")
     private String location;
 
+    @Getter
+    @Setter
     @CreationTimestamp
     @Column(name = "created")
     private Instant created;
 
+    @Getter
+    @Setter
     @OneToOne
     @JoinColumn(name = "category_name", referencedColumnName = "name")
-    private String categoryName;
+    private Category category;
 
     @Transient
     private String summary;
 
     @Transient
     private String content;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Instant getCreated() {
-        return created;
-    }
-
-    public void setCreated(Instant created) {
-        this.created = created;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
 
     /**
      * TODO this can possibly be done in a better way by reading the first chars only of the file

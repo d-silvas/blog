@@ -22,4 +22,6 @@ public class PostDto {
     private String content;
 
     private String summary;
+
+    private String category;
 }

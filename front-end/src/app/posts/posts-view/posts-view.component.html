@@ -1,5 +1,6 @@
 <div class="post-wrapper">
-  <mat-card class="post" *ngIf="post$ | async as post">
+  @if(post$|async; as post){
+  <mat-card class="post">
     <div class="heading">
       <h1 class="title">
         {{ post.title }}
@@ -10,4 +11,5 @@
     </div>
     <div class="content" [innerHTML]="post.content | safeHtml"></div>
   </mat-card>
+  }
 </div>
