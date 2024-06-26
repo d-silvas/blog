@@ -1,0 +1,599 @@
+/usr/sbin/mysqld, Version: 8.0.32 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2024-06-26T15:22:03.712275Z	    0 Execute	CREATE TABLE performance_schema.innodb_redo_log_files(
+`FILE_ID` BIGINT NOT NULL COMMENT 'Id of the file.',
+`FILE_NAME` VARCHAR(2000) NOT NULL COMMENT 'Path to the file.',
+`START_LSN` BIGINT NOT NULL COMMENT 'LSN of the first block in the file.',
+`END_LSN` BIGINT NOT NULL COMMENT 'LSN after the last block in the file.',
+`SIZE_IN_BYTES` BIGINT NOT NULL COMMENT 'Size of the file (in bytes).',
+`IS_FULL` TINYINT NOT NULL COMMENT '1 iff file has no free space inside.',
+`CONSUMER_LEVEL` INT NOT NULL COMMENT 'All redo log consumers registered on smaller levels than this value, have already consumed this file.'
+)engine = 'performance_schema'
+2024-06-26T15:22:17.586248Z	    8 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.591512Z	    8 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.601526Z	    8 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.602560Z	    8 Query	SET autocommit=1
+2024-06-26T15:22:17.606358Z	    8 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.608340Z	    8 Query	SELECT @@session.transaction_isolation
+2024-06-26T15:22:17.621178Z	    8 Query	SELECT WORD FROM INFORMATION_SCHEMA.KEYWORDS WHERE RESERVED=1 ORDER BY WORD
+2024-06-26T15:22:17.664185Z	    8 Query	SELECT @@character_set_database, @@sql_mode
+2024-06-26T15:22:17.726127Z	    9 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.727310Z	    9 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.728970Z	    9 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.730372Z	    9 Query	SET autocommit=1
+2024-06-26T15:22:17.731667Z	    9 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.751647Z	   10 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.752705Z	   10 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.753934Z	   10 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.754662Z	   10 Query	SET autocommit=1
+2024-06-26T15:22:17.755418Z	   10 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.774270Z	   11 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.775292Z	   11 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.776416Z	   11 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.777496Z	   11 Query	SET autocommit=1
+2024-06-26T15:22:17.779139Z	   11 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.798528Z	   12 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.799558Z	   12 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.800547Z	   12 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.801222Z	   12 Query	SET autocommit=1
+2024-06-26T15:22:17.801906Z	   12 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.822188Z	   13 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.823315Z	   13 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.824831Z	   13 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.825837Z	   13 Query	SET autocommit=1
+2024-06-26T15:22:17.827111Z	   13 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.847587Z	   14 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.848894Z	   14 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.850040Z	   14 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.850980Z	   14 Query	SET autocommit=1
+2024-06-26T15:22:17.851822Z	   14 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.872264Z	   15 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.873475Z	   15 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.875240Z	   15 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.876135Z	   15 Query	SET autocommit=1
+2024-06-26T15:22:17.877155Z	   15 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.897888Z	   16 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.899383Z	   16 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.900563Z	   16 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.901444Z	   16 Query	SET autocommit=1
+2024-06-26T15:22:17.902323Z	   16 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:17.922787Z	   17 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:17.923677Z	   17 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:17.924721Z	   17 Query	SET character_set_results = NULL
+2024-06-26T15:22:17.925439Z	   17 Query	SET autocommit=1
+2024-06-26T15:22:17.926202Z	   17 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:18.596871Z	    8 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME LIKE '%' HAVING TABLE_TYPE IN ('TABLE','VIEW',null,null,null) ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:18.611800Z	    8 Query	SELECT TABLE_SCHEMA, NULL, TABLE_NAME, COLUMN_NAME,CASE  WHEN UPPER(DATA_TYPE)='DECIMAL' THEN 3 WHEN UPPER(DATA_TYPE)='DECIMAL UNSIGNED' THEN 3 WHEN UPPER(DATA_TYPE)='TINYINT' THEN CASE WHEN LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN -7 ELSE -6 END  WHEN UPPER(DATA_TYPE)='TINYINT UNSIGNED' THEN CASE WHEN LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN -7 ELSE -6 END  WHEN UPPER(DATA_TYPE)='BOOLEAN' THEN 16 WHEN UPPER(DATA_TYPE)='SMALLINT' THEN 5 WHEN UPPER(DATA_TYPE)='SMALLINT UNSIGNED' THEN 5 WHEN UPPER(DATA_TYPE)='INT' THEN 4 WHEN UPPER(DATA_TYPE)='INT UNSIGNED' THEN 4 WHEN UPPER(DATA_TYPE)='FLOAT' THEN 7 WHEN UPPER(DATA_TYPE)='FLOAT UNSIGNED' THEN 7 WHEN UPPER(DATA_TYPE)='DOUBLE' THEN 8 WHEN UPPER(DATA_TYPE)='DOUBLE UNSIGNED' THEN 8 WHEN UPPER(DATA_TYPE)='NULL' THEN 0 WHEN UPPER(DATA_TYPE)='TIMESTAMP' THEN 93 WHEN UPPER(DATA_TYPE)='BIGINT' THEN -5 WHEN UPPER(DATA_TYPE)='BIGINT UNSIGNED' THEN -5 WHEN UPPER(DATA_TYPE)='MEDIUMINT' THEN 4 WHEN UPPER(DATA_TYPE)='MEDIUMINT UNSIGNED' THEN 4 WHEN UPPER(DATA_TYPE)='DATE' THEN 91 WHEN UPPER(DATA_TYPE)='TIME' THEN 92 WHEN UPPER(DATA_TYPE)='DATETIME' THEN 93 WHEN UPPER(DATA_TYPE)='YEAR' THEN 91 WHEN UPPER(DATA_TYPE)='VARCHAR' THEN 12 WHEN UPPER(DATA_TYPE)='VARBINARY' THEN -3 WHEN UPPER(DATA_TYPE)='BIT' THEN -7 WHEN UPPER(DATA_TYPE)='JSON' THEN -1 WHEN UPPER(DATA_TYPE)='ENUM' THEN 1 WHEN UPPER(DATA_TYPE)='SET' THEN 1 WHEN UPPER(DATA_TYPE)='TINYBLOB' THEN -3 WHEN UPPER(DATA_TYPE)='TINYTEXT' THEN 12 WHEN UPPER(DATA_TYPE)='MEDIUMBLOB' THEN -4 WHEN UPPER(DATA_TYPE)='MEDIUMTEXT' THEN -1 WHEN UPPER(DATA_TYPE)='LONGBLOB' THEN -4 WHEN UPPER(DATA_TYPE)='LONGTEXT' THEN -1 WHEN UPPER(DATA_TYPE)='BLOB' THEN -4 WHEN UPPER(DATA_TYPE)='TEXT' THEN -1 WHEN UPPER(DATA_TYPE)='CHAR' THEN 1 WHEN UPPER(DATA_TYPE)='BINARY' THEN -2 WHEN UPPER(DATA_TYPE)='GEOMETRY' THEN -2 WHEN UPPER(DATA_TYPE)='UNKNOWN' THEN 1111 WHEN UPPER(DATA_TYPE)='POINT' THEN -2 WHEN UPPER(DATA_TYPE)='LINESTRING' THEN -2 WHEN UPPER(DATA_TYPE)='POLYGON' THEN -2 WHEN UPPER(DATA_TYPE)='MULTIPOINT' THEN -2 WHEN UPPER(DATA_TYPE)='MULTILINESTRING' THEN -2 WHEN UPPER(DATA_TYPE)='MULTIPOLYGON' THEN -2 WHEN UPPER(DATA_TYPE)='GEOMETRYCOLLECTION' THEN -2 WHEN UPPER(DATA_TYPE)='GEOMCOLLECTION' THEN -2 ELSE 1111 END  AS DATA_TYPE, UPPER(CASE WHEN UPPER(DATA_TYPE)='TINYINT' THEN CASE WHEN LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN 'BIT' WHEN LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) != 0 AND LOCATE('UNSIGNED', UPPER(DATA_TYPE)) = 0 THEN 'TINYINT UNSIGNED' ELSE DATA_TYPE END  WHEN LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) != 0 AND LOCATE('UNSIGNED', UPPER(DATA_TYPE)) = 0 AND LOCATE('SET', UPPER(DATA_TYPE)) <> 1 AND LOCATE('ENUM', UPPER(DATA_TYPE)) <> 1 THEN CONCAT(DATA_TYPE, ' UNSIGNED') WHEN UPPER(DATA_TYPE)='POINT' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='LINESTRING' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='POLYGON' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='MULTIPOINT' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='MULTILINESTRING' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='MULTIPOLYGON' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='GEOMETRYCOLLECTION' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='GEOMCOLLECTION' THEN 'GEOMETRY' ELSE UPPER(DATA_TYPE) END) AS TYPE_NAME,UPPER(CASE WHEN UPPER(DATA_TYPE)='DATE' THEN 10 WHEN UPPER(DATA_TYPE)='TIME'  THEN 8+(CASE WHEN DATETIME_PRECISION>0 THEN DATETIME_PRECISION+1 ELSE DATETIME_PRECISION END) WHEN UPPER(DATA_TYPE)='DATETIME' OR  UPPER(DATA_TYPE)='TIMESTAMP'  THEN 19+(CASE WHEN DATETIME_PRECISION>0 THEN DATETIME_PRECISION+1 ELSE DATETIME_PRECISION END) WHEN UPPER(DATA_TYPE)='YEAR' THEN 4 WHEN UPPER(DATA_TYPE)='TINYINT' AND LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN 1 WHEN UPPER(DATA_TYPE)='MEDIUMINT' AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) != 0 THEN 8 WHEN UPPER(DATA_TYPE)='JSON' THEN 1073741824 WHEN UPPER(DATA_TYPE)='GEOMETRY' THEN 65535 WHEN UPPER(DATA_TYPE)='POINT' THEN 65535 WHEN UPPER(DATA_TYPE)='LINESTRING' THEN 65535 WHEN UPPER(DATA_TYPE)='POLYGON' THEN 65535 WHEN UPPER(DATA_TYPE)='MULTIPOINT' THEN 65535 WHEN UPPER(DATA_TYPE)='MULTILINESTRING' THEN 65535 WHEN UPPER(DATA_TYPE)='MULTIPOLYGON' THEN 65535 WHEN UPPER(DATA_TYPE)='GEOMETRYCOLLECTION' THEN 65535 WHEN UPPER(DATA_TYPE)='GEOMCOLLECTION' THEN 65535 WHEN CHARACTER_MAXIMUM_LENGTH IS NULL THEN NUMERIC_PRECISION WHEN CHARACTER_MAXIMUM_LENGTH > 2147483647 THEN 2147483647 ELSE CHARACTER_MAXIMUM_LENGTH END) AS COLUMN_SIZE,65535 AS BUFFER_LENGTH,UPPER(CASE WHEN UPPER(DATA_TYPE)='DECIMAL' THEN NUMERIC_SCALE WHEN UPPER(DATA_TYPE)='FLOAT' OR UPPER(DATA_TYPE)='DOUBLE' THEN CASE WHEN NUMERIC_SCALE IS NULL THEN 0 ELSE NUMERIC_SCALE END ELSE NULL END) AS DECIMAL_DIGITS,10 AS NUM_PREC_RADIX,CASE WHEN IS_NULLABLE='NO' THEN 0 ELSE CASE WHEN IS_NULLABLE='YES' THEN 1 ELSE 2 END END AS NULLABLE,COLUMN_COMMENT AS REMARKS,COLUMN_DEFAULT AS COLUMN_DEF,0 AS SQL_DATA_TYPE,0 AS SQL_DATETIME_SUB,CASE WHEN CHARACTER_OCTET_LENGTH > 2147483647 THEN 2147483647 ELSE CHARACTER_OCTET_LENGTH END AS CHAR_OCTET_LENGTH,ORDINAL_POSITION, IS_NULLABLE, NULL AS SCOPE_CATALOG, NULL AS SCOPE_SCHEMA, NULL AS SCOPE_TABLE, NULL AS SOURCE_DATA_TYPE,IF (EXTRA LIKE '%auto_increment%','YES','NO') AS IS_AUTOINCREMENT, IF (EXTRA LIKE '%GENERATED%','YES','NO') AS IS_GENERATEDCOLUMN FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'blog' AND COLUMN_NAME LIKE '%' ORDER BY TABLE_SCHEMA, TABLE_NAME, ORDINAL_POSITION
+2024-06-26T15:22:35.018828Z	    8 Quit	
+2024-06-26T15:22:35.020482Z	    9 Quit	
+2024-06-26T15:22:35.021512Z	   10 Quit	
+2024-06-26T15:22:35.022654Z	   11 Quit	
+2024-06-26T15:22:35.023825Z	   12 Quit	
+2024-06-26T15:22:35.024905Z	   13 Quit	
+2024-06-26T15:22:35.025846Z	   14 Quit	
+2024-06-26T15:22:35.026971Z	   15 Quit	
+2024-06-26T15:22:35.028340Z	   16 Quit	
+2024-06-26T15:22:35.029896Z	   17 Quit	
+2024-06-26T15:22:43.259113Z	   18 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.262153Z	   18 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.269616Z	   18 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.271262Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:43.275201Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.277186Z	   18 Query	SELECT @@session.transaction_isolation
+2024-06-26T15:22:43.332252Z	   18 Query	SELECT version()
+2024-06-26T15:22:43.402198Z	   19 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.403606Z	   19 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.405079Z	   19 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.406925Z	   19 Query	SET autocommit=1
+2024-06-26T15:22:43.408449Z	   19 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.434309Z	   20 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.436160Z	   20 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.438494Z	   20 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.439918Z	   20 Query	SET autocommit=1
+2024-06-26T15:22:43.441261Z	   20 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.465951Z	   21 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.467302Z	   21 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.468858Z	   21 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.469888Z	   21 Query	SET autocommit=1
+2024-06-26T15:22:43.470938Z	   21 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.494862Z	   22 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.496025Z	   22 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.497498Z	   22 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.498501Z	   22 Query	SET autocommit=1
+2024-06-26T15:22:43.499946Z	   22 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.521373Z	   23 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.522615Z	   23 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.524008Z	   23 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.525285Z	   23 Query	SET autocommit=1
+2024-06-26T15:22:43.526378Z	   23 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.550842Z	   24 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.552139Z	   24 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.554046Z	   24 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.555234Z	   24 Query	SET autocommit=1
+2024-06-26T15:22:43.556925Z	   24 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.576895Z	   25 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.578367Z	   25 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.580402Z	   25 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.581973Z	   25 Query	SET autocommit=1
+2024-06-26T15:22:43.583541Z	   25 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.606546Z	   26 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.607795Z	   26 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.609177Z	   26 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.610296Z	   26 Query	SET autocommit=1
+2024-06-26T15:22:43.611684Z	   26 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.634338Z	   27 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:43.636003Z	   27 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:43.637604Z	   27 Query	SET character_set_results = NULL
+2024-06-26T15:22:43.638917Z	   27 Query	SET autocommit=1
+2024-06-26T15:22:43.639964Z	   27 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:43.710495Z	   18 Query	SELECT WORD FROM INFORMATION_SCHEMA.KEYWORDS WHERE RESERVED=1 ORDER BY WORD
+2024-06-26T15:22:43.739165Z	   18 Query	SELECT @@character_set_database, @@sql_mode
+2024-06-26T15:22:44.247902Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.253449Z	   18 Query	select VARIABLE_VALUE from performance_schema.global_variables where variable_name = 'pxc_strict_mode'
+2024-06-26T15:22:44.258848Z	   18 Query	SELECT @@GLOBAL.ENFORCE_GTID_CONSISTENCY
+2024-06-26T15:22:44.261665Z	   18 Query	SELECT DATABASE()
+2024-06-26T15:22:44.262770Z	   18 Query	SELECT variable_name FROM performance_schema.user_variables_by_thread WHERE variable_value IS NOT NULL
+2024-06-26T15:22:44.283715Z	   18 Query	SELECT @@foreign_key_checks
+2024-06-26T15:22:44.285508Z	   18 Query	SELECT @@sql_safe_updates
+2024-06-26T15:22:44.287141Z	   18 Query	SELECT DATABASE()
+2024-06-26T15:22:44.289670Z	   18 Query	SELECT DATABASE()
+2024-06-26T15:22:44.291062Z	   18 Query	SELECT SUBSTRING_INDEX(USER(),'@',1)
+2024-06-26T15:22:44.294698Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.302340Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.304441Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.306168Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.307823Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.311625Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > -1 ORDER BY `installed_rank`
+2024-06-26T15:22:44.325464Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.326771Z	   18 Query	commit
+2024-06-26T15:22:44.328179Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.330849Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.334001Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.335634Z	   18 Query	SELECT event_name FROM information_schema.events WHERE event_schema='blog'
+2024-06-26T15:22:44.340591Z	   18 Query	SELECT routine_name as 'N', routine_type as 'T' FROM information_schema.routines WHERE routine_schema='blog'
+2024-06-26T15:22:44.351319Z	   18 Query	SELECT table_name FROM information_schema.views WHERE table_schema='blog'
+2024-06-26T15:22:44.354063Z	   18 Query	SET FOREIGN_KEY_CHECKS = 0
+2024-06-26T15:22:44.355205Z	   18 Query	SELECT table_name FROM information_schema.tables WHERE table_schema='blog' AND table_type IN ('BASE TABLE', 'SYSTEM VERSIONED')
+2024-06-26T15:22:44.358644Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.359786Z	   18 Query	DROP TABLE `blog`.`categories`
+2024-06-26T15:22:44.385359Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.386881Z	   18 Query	DROP TABLE `blog`.`migrations`
+2024-06-26T15:22:44.404237Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.405347Z	   18 Query	DROP TABLE `blog`.`posts`
+2024-06-26T15:22:44.422955Z	   18 Query	SET FOREIGN_KEY_CHECKS = 1
+2024-06-26T15:22:44.423794Z	   18 Query	SELECT table_name FROM information_schema.tables WHERE table_schema='blog' AND table_type='SEQUENCE'
+2024-06-26T15:22:44.426370Z	   18 Query	commit
+2024-06-26T15:22:44.427748Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.429286Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.430837Z	   18 Query	SELECT event_name FROM information_schema.events WHERE event_schema='blog'
+2024-06-26T15:22:44.433722Z	   18 Query	SELECT routine_name as 'N', routine_type as 'T' FROM information_schema.routines WHERE routine_schema='blog'
+2024-06-26T15:22:44.436411Z	   18 Query	SELECT table_name FROM information_schema.views WHERE table_schema='blog'
+2024-06-26T15:22:44.438938Z	   18 Query	SET FOREIGN_KEY_CHECKS = 0
+2024-06-26T15:22:44.440222Z	   18 Query	SELECT table_name FROM information_schema.tables WHERE table_schema='blog' AND table_type IN ('BASE TABLE', 'SYSTEM VERSIONED')
+2024-06-26T15:22:44.442724Z	   18 Query	SET FOREIGN_KEY_CHECKS = 1
+2024-06-26T15:22:44.443958Z	   18 Query	SELECT table_name FROM information_schema.tables WHERE table_schema='blog' AND table_type='SEQUENCE'
+2024-06-26T15:22:44.445932Z	   18 Query	commit
+2024-06-26T15:22:44.446745Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.448096Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.448969Z	   18 Query	commit
+2024-06-26T15:22:44.449658Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.451054Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.452110Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.452921Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.453636Z	   18 Query	commit
+2024-06-26T15:22:44.454262Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.454937Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.457618Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.458988Z	   18 Query	select VARIABLE_VALUE from performance_schema.global_variables where variable_name = 'pxc_strict_mode'
+2024-06-26T15:22:44.462870Z	   18 Query	SELECT @@GLOBAL.ENFORCE_GTID_CONSISTENCY
+2024-06-26T15:22:44.464054Z	   18 Query	SELECT DATABASE()
+2024-06-26T15:22:44.465203Z	   18 Query	SELECT variable_name FROM performance_schema.user_variables_by_thread WHERE variable_value IS NOT NULL
+2024-06-26T15:22:44.466592Z	   18 Query	SELECT @@foreign_key_checks
+2024-06-26T15:22:44.467677Z	   18 Query	SELECT @@sql_safe_updates
+2024-06-26T15:22:44.468743Z	   18 Query	SELECT DATABASE()
+2024-06-26T15:22:44.469652Z	   18 Query	SELECT DATABASE()
+2024-06-26T15:22:44.470577Z	   18 Query	SELECT SUBSTRING_INDEX(USER(),'@',1)
+2024-06-26T15:22:44.471503Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.474223Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.475776Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.489669Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.491043Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.494451Z	   18 Query	commit
+2024-06-26T15:22:44.495266Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.497220Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.498065Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.500122Z	   18 Query	commit
+2024-06-26T15:22:44.501153Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.502162Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.503213Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.505008Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.507680Z	   18 Query	SELECT SUM(found) FROM ((SELECT 1 as found FROM information_schema.tables WHERE table_schema='blog') UNION ALL (SELECT 1 as found FROM information_schema.views WHERE table_schema='blog' LIMIT 1) UNION ALL (SELECT 1 as found FROM information_schema.table_constraints WHERE table_schema='blog' LIMIT 1) UNION ALL (SELECT 1 as found FROM information_schema.triggers WHERE event_object_schema='blog'  LIMIT 1) UNION ALL (SELECT 1 as found FROM information_schema.routines WHERE routine_schema='blog' LIMIT 1) UNION ALL (SELECT 1 as found FROM information_schema.events WHERE event_schema='blog' LIMIT 1)) as all_found
+2024-06-26T15:22:44.518830Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.520469Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.521945Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.524942Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.537761Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.539485Z	   18 Query	CREATE TABLE `blog`.`migrations` (
+    `installed_rank` INT NOT NULL,
+    `version` VARCHAR(50),
+    `description` VARCHAR(200) NOT NULL,
+    `type` VARCHAR(20) NOT NULL,
+    `script` VARCHAR(1000) NOT NULL,
+    `checksum` INT,
+    `installed_by` VARCHAR(100) NOT NULL,
+    `installed_on` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `execution_time` INT NOT NULL,
+    `success` BOOL NOT NULL,
+    CONSTRAINT `migrations_pk` PRIMARY KEY (`installed_rank`)
+) ENGINE=InnoDB
+2024-06-26T15:22:44.560297Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.561366Z	   18 Query	CREATE INDEX `migrations_s_idx` ON `blog`.`migrations` (`success`)
+2024-06-26T15:22:44.587111Z	   18 Query	commit
+2024-06-26T15:22:44.588556Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.590464Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.592860Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.595188Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.599179Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.600848Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.603184Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.605387Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.609151Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > -1 ORDER BY `installed_rank`
+2024-06-26T15:22:44.615847Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.617678Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.618903Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.620703Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.622370Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.624833Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.626059Z	   18 Query	CREATE TABLE categories (
+    name VARCHAR(127) PRIMARY KEY,
+    description VARCHAR(1023) NOT NULL
+)
+2024-06-26T15:22:44.652345Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.653369Z	   18 Query	INSERT INTO categories (name, description) VALUES
+    ('Math', 'Math theory or exercises'),
+    ('Programming', 'Programming notes'),
+    ('Random', 'Random content')
+2024-06-26T15:22:44.656628Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.658619Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.661065Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > -1 ORDER BY `installed_rank`
+2024-06-26T15:22:44.662852Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.664352Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.667101Z	   18 Query	SELECT * FROM `blog`.`migrations` FOR UPDATE
+2024-06-26T15:22:44.668677Z	   18 Query	SELECT SUBSTRING_INDEX(USER(),'@',1)
+2024-06-26T15:22:44.670580Z	   18 Query	INSERT INTO `blog`.`migrations` (`installed_rank`, `version`, `description`, `type`, `script`, `checksum`, `installed_by`, `execution_time`, `success`) VALUES (1, '1.202405101000', 'create-categories-table', 'SQL', 'V1_202405101000__create-categories-table.sql', 887189909, 'user', 38, 1)
+2024-06-26T15:22:44.672206Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.674585Z	   18 Query	commit
+2024-06-26T15:22:44.678945Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.680504Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.682339Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.684043Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.686295Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.688552Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.691612Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > -1 ORDER BY `installed_rank`
+2024-06-26T15:22:44.696381Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.698022Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.699514Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.701407Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.702776Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.704128Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.705273Z	   18 Query	CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    created DATETIME,
+    published DATETIME,
+    location VARCHAR(1024) NOT NULL,
+    title VARCHAR(512) NOT NULL,
+    category_name VARCHAR(127),
+    UNIQUE(title),
+    FOREIGN KEY (category_name) REFERENCES categories(name)
+)
+2024-06-26T15:22:44.745265Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.746877Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.749854Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 1 ORDER BY `installed_rank`
+2024-06-26T15:22:44.751261Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.752756Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.755234Z	   18 Query	SELECT * FROM `blog`.`migrations` FOR UPDATE
+2024-06-26T15:22:44.757316Z	   18 Query	INSERT INTO `blog`.`migrations` (`installed_rank`, `version`, `description`, `type`, `script`, `checksum`, `installed_by`, `execution_time`, `success`) VALUES (2, '1.202405101001', 'create-posts-table', 'SQL', 'V1_202405101001__create-posts-table.sql', 309228188, 'user', 47, 1)
+2024-06-26T15:22:44.759873Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.762247Z	   18 Query	commit
+2024-06-26T15:22:44.766211Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.767819Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.769623Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.770919Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.772437Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.774162Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.777207Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 1 ORDER BY `installed_rank`
+2024-06-26T15:22:44.783013Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.785160Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.787250Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.790517Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.792939Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.795020Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.797565Z	   18 Query	insert into posts (created, published, location, title, category_name)
+values (
+    '2020-10-01 12:34:56',
+    '2020-10-01 12:34:56',
+    'posts/01.html',
+    'Type narrowing in Typescript',
+    'Programming'
+)
+2024-06-26T15:22:44.801860Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.803724Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.808320Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 2 ORDER BY `installed_rank`
+2024-06-26T15:22:44.810589Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.812790Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.815691Z	   18 Query	SELECT * FROM `blog`.`migrations` FOR UPDATE
+2024-06-26T15:22:44.818980Z	   18 Query	INSERT INTO `blog`.`migrations` (`installed_rank`, `version`, `description`, `type`, `script`, `checksum`, `installed_by`, `execution_time`, `success`) VALUES (3, '1.202405101002', 'add-first-post', 'SQL', 'V1_202405101002__add-first-post.sql', -807678710, 'user', 16, 1)
+2024-06-26T15:22:44.820810Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.822862Z	   18 Query	commit
+2024-06-26T15:22:44.827808Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.829538Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.831282Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.833058Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.835031Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.837067Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.840077Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 2 ORDER BY `installed_rank`
+2024-06-26T15:22:44.844045Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.845803Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.847315Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.849049Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.850683Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.852093Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.853198Z	   18 Query	insert into posts (created, published, location, title, category_name)
+values (
+    '2024-02-19 17:45:00',
+    '2024-02-19 17:45:00',
+    'posts/02.html',
+    'Cool music',
+    'Random'
+)
+2024-06-26T15:22:44.855250Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.858024Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.861161Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 3 ORDER BY `installed_rank`
+2024-06-26T15:22:44.862983Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.864526Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.867371Z	   18 Query	SELECT * FROM `blog`.`migrations` FOR UPDATE
+2024-06-26T15:22:44.869036Z	   18 Query	INSERT INTO `blog`.`migrations` (`installed_rank`, `version`, `description`, `type`, `script`, `checksum`, `installed_by`, `execution_time`, `success`) VALUES (4, '1.202405101003', 'add-music-post', 'SQL', 'V1_202405101003__add-music-post.sql', -570891438, 'user', 9, 1)
+2024-06-26T15:22:44.870846Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.872766Z	   18 Query	commit
+2024-06-26T15:22:44.876328Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.877703Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.879354Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.880719Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.882946Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.885003Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.888149Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 3 ORDER BY `installed_rank`
+2024-06-26T15:22:44.892108Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.893544Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.894550Z	   18 Query	SELECT COUNT(1) FROM information_schema.schemata WHERE schema_name='blog' LIMIT 1
+2024-06-26T15:22:44.896031Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.897170Z	   18 Query	SELECT version()
+2024-06-26T15:22:44.898921Z	   18 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:44.900165Z	   18 Query	insert into posts (created, published, location, title, category_name)
+values (
+    '2024-05-10 17:45:00',
+    '2024-05-10 17:45:00',
+    'posts/03.html',
+    'Probability definitions',
+    'Math'
+), (
+    '2024-05-10 17:55:00',
+    '2024-05-10 17:55:00',
+    'posts/04.html',
+    'Ross'' Introduction to Probability Models - Ex 3.11',
+    'Math'
+)
+2024-06-26T15:22:44.901958Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.903498Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.906307Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 4 ORDER BY `installed_rank`
+2024-06-26T15:22:44.908647Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.910170Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.912657Z	   18 Query	SELECT * FROM `blog`.`migrations` FOR UPDATE
+2024-06-26T15:22:44.914712Z	   18 Query	INSERT INTO `blog`.`migrations` (`installed_rank`, `version`, `description`, `type`, `script`, `checksum`, `installed_by`, `execution_time`, `success`) VALUES (5, '1.202405101004', 'add-math-posts', 'SQL', 'V1_202405101004__add-math-posts.sql', -874151235, 'user', 8, 1)
+2024-06-26T15:22:44.917001Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.920113Z	   18 Query	commit
+2024-06-26T15:22:44.925231Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.927186Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.929233Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.931193Z	   18 Query	SELECT GET_LOCK('Flyway-649799051',10)
+2024-06-26T15:22:44.933722Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.936612Z	   18 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME = 'migrations' ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:44.941325Z	   18 Query	SELECT `installed_rank`,`version`,`description`,`type`,`script`,`checksum`,`installed_on`,`installed_by`,`execution_time`,`success` FROM `blog`.`migrations` WHERE `installed_rank` > 4 ORDER BY `installed_rank`
+2024-06-26T15:22:44.944734Z	   18 Query	SELECT RELEASE_LOCK('Flyway-649799051')
+2024-06-26T15:22:44.952199Z	   18 Query	SET foreign_key_checks=1, sql_safe_updates=0
+2024-06-26T15:22:44.953903Z	   18 Query	SET autocommit=0
+2024-06-26T15:22:44.955621Z	   18 Query	USE `blog`
+2024-06-26T15:22:44.957291Z	   18 Query	commit
+2024-06-26T15:22:44.959015Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.960441Z	   18 Query	SET autocommit=1
+2024-06-26T15:22:44.972645Z	   18 Quit	
+2024-06-26T15:22:44.975282Z	   19 Quit	
+2024-06-26T15:22:44.976867Z	   20 Quit	
+2024-06-26T15:22:44.978326Z	   21 Quit	
+2024-06-26T15:22:44.980229Z	   22 Quit	
+2024-06-26T15:22:44.981363Z	   23 Quit	
+2024-06-26T15:22:44.983013Z	   24 Quit	
+2024-06-26T15:22:44.984774Z	   25 Quit	
+2024-06-26T15:22:44.986151Z	   26 Quit	
+2024-06-26T15:22:44.987498Z	   27 Quit	
+2024-06-26T15:22:55.281558Z	   28 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.286763Z	   28 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.296463Z	   28 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.297766Z	   28 Query	SET autocommit=1
+2024-06-26T15:22:55.302112Z	   28 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.303844Z	   28 Query	SELECT @@session.transaction_isolation
+2024-06-26T15:22:55.316778Z	   28 Query	SELECT WORD FROM INFORMATION_SCHEMA.KEYWORDS WHERE RESERVED=1 ORDER BY WORD
+2024-06-26T15:22:55.353248Z	   28 Query	SELECT @@character_set_database, @@sql_mode
+2024-06-26T15:22:55.425273Z	   29 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.426836Z	   29 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.429016Z	   29 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.430421Z	   29 Query	SET autocommit=1
+2024-06-26T15:22:55.431933Z	   29 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.451780Z	   30 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.452803Z	   30 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.453838Z	   30 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.454747Z	   30 Query	SET autocommit=1
+2024-06-26T15:22:55.455705Z	   30 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.475650Z	   31 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.477249Z	   31 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.479143Z	   31 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.480569Z	   31 Query	SET autocommit=1
+2024-06-26T15:22:55.482202Z	   31 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.504983Z	   32 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.506046Z	   32 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.507755Z	   32 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.509051Z	   32 Query	SET autocommit=1
+2024-06-26T15:22:55.510239Z	   32 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.538922Z	   33 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.540257Z	   33 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.542953Z	   33 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.544405Z	   33 Query	SET autocommit=1
+2024-06-26T15:22:55.545377Z	   33 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.565935Z	   34 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.566888Z	   34 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.568042Z	   34 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.568768Z	   34 Query	SET autocommit=1
+2024-06-26T15:22:55.569778Z	   34 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.592002Z	   35 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.593606Z	   35 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.595587Z	   35 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.596712Z	   35 Query	SET autocommit=1
+2024-06-26T15:22:55.597782Z	   35 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.620439Z	   36 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.621950Z	   36 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.623700Z	   36 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.625313Z	   36 Query	SET autocommit=1
+2024-06-26T15:22:55.627084Z	   36 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:55.650894Z	   37 Connect	user@192.168.65.1 on blog using SSL/TLS
+2024-06-26T15:22:55.652405Z	   37 Query	/* mysql-connector-j-8.3.0 (Revision: 805f872a57875f311cb82487efcfb070411a3fa0) */SELECT  @@session.auto_increment_increment AS auto_increment_increment, @@character_set_client AS character_set_client, @@character_set_connection AS character_set_connection, @@character_set_results AS character_set_results, @@character_set_server AS character_set_server, @@collation_server AS collation_server, @@collation_connection AS collation_connection, @@init_connect AS init_connect, @@interactive_timeout AS interactive_timeout, @@license AS license, @@lower_case_table_names AS lower_case_table_names, @@max_allowed_packet AS max_allowed_packet, @@net_write_timeout AS net_write_timeout, @@performance_schema AS performance_schema, @@sql_mode AS sql_mode, @@system_time_zone AS system_time_zone, @@time_zone AS time_zone, @@transaction_isolation AS transaction_isolation, @@wait_timeout AS wait_timeout
+2024-06-26T15:22:55.654259Z	   37 Query	SET character_set_results = NULL
+2024-06-26T15:22:55.655972Z	   37 Query	SET autocommit=1
+2024-06-26T15:22:55.657842Z	   37 Query	SELECT @@session.transaction_read_only
+2024-06-26T15:22:56.120106Z	   28 Query	SELECT TABLE_SCHEMA AS TABLE_CAT, NULL AS TABLE_SCHEM, TABLE_NAME, CASE WHEN TABLE_TYPE='BASE TABLE' THEN CASE WHEN TABLE_SCHEMA = 'mysql' OR TABLE_SCHEMA = 'performance_schema' THEN 'SYSTEM TABLE' ELSE 'TABLE' END WHEN TABLE_TYPE='TEMPORARY' THEN 'LOCAL_TEMPORARY' ELSE TABLE_TYPE END AS TABLE_TYPE, TABLE_COMMENT AS REMARKS, NULL AS TYPE_CAT, NULL AS TYPE_SCHEM, NULL AS TYPE_NAME, NULL AS SELF_REFERENCING_COL_NAME, NULL AS REF_GENERATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'blog' AND TABLE_NAME LIKE '%' HAVING TABLE_TYPE IN ('TABLE','VIEW',null,null,null) ORDER BY TABLE_TYPE, TABLE_SCHEMA, TABLE_NAME
+2024-06-26T15:22:56.126041Z	   28 Query	SELECT TABLE_SCHEMA, NULL, TABLE_NAME, COLUMN_NAME,CASE  WHEN UPPER(DATA_TYPE)='DECIMAL' THEN 3 WHEN UPPER(DATA_TYPE)='DECIMAL UNSIGNED' THEN 3 WHEN UPPER(DATA_TYPE)='TINYINT' THEN CASE WHEN LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN -7 ELSE -6 END  WHEN UPPER(DATA_TYPE)='TINYINT UNSIGNED' THEN CASE WHEN LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN -7 ELSE -6 END  WHEN UPPER(DATA_TYPE)='BOOLEAN' THEN 16 WHEN UPPER(DATA_TYPE)='SMALLINT' THEN 5 WHEN UPPER(DATA_TYPE)='SMALLINT UNSIGNED' THEN 5 WHEN UPPER(DATA_TYPE)='INT' THEN 4 WHEN UPPER(DATA_TYPE)='INT UNSIGNED' THEN 4 WHEN UPPER(DATA_TYPE)='FLOAT' THEN 7 WHEN UPPER(DATA_TYPE)='FLOAT UNSIGNED' THEN 7 WHEN UPPER(DATA_TYPE)='DOUBLE' THEN 8 WHEN UPPER(DATA_TYPE)='DOUBLE UNSIGNED' THEN 8 WHEN UPPER(DATA_TYPE)='NULL' THEN 0 WHEN UPPER(DATA_TYPE)='TIMESTAMP' THEN 93 WHEN UPPER(DATA_TYPE)='BIGINT' THEN -5 WHEN UPPER(DATA_TYPE)='BIGINT UNSIGNED' THEN -5 WHEN UPPER(DATA_TYPE)='MEDIUMINT' THEN 4 WHEN UPPER(DATA_TYPE)='MEDIUMINT UNSIGNED' THEN 4 WHEN UPPER(DATA_TYPE)='DATE' THEN 91 WHEN UPPER(DATA_TYPE)='TIME' THEN 92 WHEN UPPER(DATA_TYPE)='DATETIME' THEN 93 WHEN UPPER(DATA_TYPE)='YEAR' THEN 91 WHEN UPPER(DATA_TYPE)='VARCHAR' THEN 12 WHEN UPPER(DATA_TYPE)='VARBINARY' THEN -3 WHEN UPPER(DATA_TYPE)='BIT' THEN -7 WHEN UPPER(DATA_TYPE)='JSON' THEN -1 WHEN UPPER(DATA_TYPE)='ENUM' THEN 1 WHEN UPPER(DATA_TYPE)='SET' THEN 1 WHEN UPPER(DATA_TYPE)='TINYBLOB' THEN -3 WHEN UPPER(DATA_TYPE)='TINYTEXT' THEN 12 WHEN UPPER(DATA_TYPE)='MEDIUMBLOB' THEN -4 WHEN UPPER(DATA_TYPE)='MEDIUMTEXT' THEN -1 WHEN UPPER(DATA_TYPE)='LONGBLOB' THEN -4 WHEN UPPER(DATA_TYPE)='LONGTEXT' THEN -1 WHEN UPPER(DATA_TYPE)='BLOB' THEN -4 WHEN UPPER(DATA_TYPE)='TEXT' THEN -1 WHEN UPPER(DATA_TYPE)='CHAR' THEN 1 WHEN UPPER(DATA_TYPE)='BINARY' THEN -2 WHEN UPPER(DATA_TYPE)='GEOMETRY' THEN -2 WHEN UPPER(DATA_TYPE)='UNKNOWN' THEN 1111 WHEN UPPER(DATA_TYPE)='POINT' THEN -2 WHEN UPPER(DATA_TYPE)='LINESTRING' THEN -2 WHEN UPPER(DATA_TYPE)='POLYGON' THEN -2 WHEN UPPER(DATA_TYPE)='MULTIPOINT' THEN -2 WHEN UPPER(DATA_TYPE)='MULTILINESTRING' THEN -2 WHEN UPPER(DATA_TYPE)='MULTIPOLYGON' THEN -2 WHEN UPPER(DATA_TYPE)='GEOMETRYCOLLECTION' THEN -2 WHEN UPPER(DATA_TYPE)='GEOMCOLLECTION' THEN -2 ELSE 1111 END  AS DATA_TYPE, UPPER(CASE WHEN UPPER(DATA_TYPE)='TINYINT' THEN CASE WHEN LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN 'BIT' WHEN LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) != 0 AND LOCATE('UNSIGNED', UPPER(DATA_TYPE)) = 0 THEN 'TINYINT UNSIGNED' ELSE DATA_TYPE END  WHEN LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) != 0 AND LOCATE('UNSIGNED', UPPER(DATA_TYPE)) = 0 AND LOCATE('SET', UPPER(DATA_TYPE)) <> 1 AND LOCATE('ENUM', UPPER(DATA_TYPE)) <> 1 THEN CONCAT(DATA_TYPE, ' UNSIGNED') WHEN UPPER(DATA_TYPE)='POINT' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='LINESTRING' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='POLYGON' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='MULTIPOINT' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='MULTILINESTRING' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='MULTIPOLYGON' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='GEOMETRYCOLLECTION' THEN 'GEOMETRY' WHEN UPPER(DATA_TYPE)='GEOMCOLLECTION' THEN 'GEOMETRY' ELSE UPPER(DATA_TYPE) END) AS TYPE_NAME,UPPER(CASE WHEN UPPER(DATA_TYPE)='DATE' THEN 10 WHEN UPPER(DATA_TYPE)='TIME'  THEN 8+(CASE WHEN DATETIME_PRECISION>0 THEN DATETIME_PRECISION+1 ELSE DATETIME_PRECISION END) WHEN UPPER(DATA_TYPE)='DATETIME' OR  UPPER(DATA_TYPE)='TIMESTAMP'  THEN 19+(CASE WHEN DATETIME_PRECISION>0 THEN DATETIME_PRECISION+1 ELSE DATETIME_PRECISION END) WHEN UPPER(DATA_TYPE)='YEAR' THEN 4 WHEN UPPER(DATA_TYPE)='TINYINT' AND LOCATE('ZEROFILL', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) = 0 AND LOCATE('(1)', COLUMN_TYPE) != 0 THEN 1 WHEN UPPER(DATA_TYPE)='MEDIUMINT' AND LOCATE('UNSIGNED', UPPER(COLUMN_TYPE)) != 0 THEN 8 WHEN UPPER(DATA_TYPE)='JSON' THEN 1073741824 WHEN UPPER(DATA_TYPE)='GEOMETRY' THEN 65535 WHEN UPPER(DATA_TYPE)='POINT' THEN 65535 WHEN UPPER(DATA_TYPE)='LINESTRING' THEN 65535 WHEN UPPER(DATA_TYPE)='POLYGON' THEN 65535 WHEN UPPER(DATA_TYPE)='MULTIPOINT' THEN 65535 WHEN UPPER(DATA_TYPE)='MULTILINESTRING' THEN 65535 WHEN UPPER(DATA_TYPE)='MULTIPOLYGON' THEN 65535 WHEN UPPER(DATA_TYPE)='GEOMETRYCOLLECTION' THEN 65535 WHEN UPPER(DATA_TYPE)='GEOMCOLLECTION' THEN 65535 WHEN CHARACTER_MAXIMUM_LENGTH IS NULL THEN NUMERIC_PRECISION WHEN CHARACTER_MAXIMUM_LENGTH > 2147483647 THEN 2147483647 ELSE CHARACTER_MAXIMUM_LENGTH END) AS COLUMN_SIZE,65535 AS BUFFER_LENGTH,UPPER(CASE WHEN UPPER(DATA_TYPE)='DECIMAL' THEN NUMERIC_SCALE WHEN UPPER(DATA_TYPE)='FLOAT' OR UPPER(DATA_TYPE)='DOUBLE' THEN CASE WHEN NUMERIC_SCALE IS NULL THEN 0 ELSE NUMERIC_SCALE END ELSE NULL END) AS DECIMAL_DIGITS,10 AS NUM_PREC_RADIX,CASE WHEN IS_NULLABLE='NO' THEN 0 ELSE CASE WHEN IS_NULLABLE='YES' THEN 1 ELSE 2 END END AS NULLABLE,COLUMN_COMMENT AS REMARKS,COLUMN_DEFAULT AS COLUMN_DEF,0 AS SQL_DATA_TYPE,0 AS SQL_DATETIME_SUB,CASE WHEN CHARACTER_OCTET_LENGTH > 2147483647 THEN 2147483647 ELSE CHARACTER_OCTET_LENGTH END AS CHAR_OCTET_LENGTH,ORDINAL_POSITION, IS_NULLABLE, NULL AS SCOPE_CATALOG, NULL AS SCOPE_SCHEMA, NULL AS SCOPE_TABLE, NULL AS SOURCE_DATA_TYPE,IF (EXTRA LIKE '%auto_increment%','YES','NO') AS IS_AUTOINCREMENT, IF (EXTRA LIKE '%GENERATED%','YES','NO') AS IS_GENERATEDCOLUMN FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'blog' AND COLUMN_NAME LIKE '%' ORDER BY TABLE_SCHEMA, TABLE_NAME, ORDINAL_POSITION
+2024-06-26T15:23:03.167294Z	   28 Query	set session transaction read only
+2024-06-26T15:23:03.170379Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:03.338151Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:23:03.352646Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:23:03.363216Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:23:03.365949Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:23:03.373103Z	   28 Query	commit
+2024-06-26T15:23:03.374074Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:03.376040Z	   28 Query	set session transaction read write
+2024-06-26T15:23:05.151130Z	   28 Query	set session transaction read only
+2024-06-26T15:23:05.151972Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:05.157451Z	   28 Query	select p1_0.id,c1_0.name,c1_0.description,p1_0.created,p1_0.location,p1_0.title from posts p1_0 left join categories c1_0 on c1_0.name=p1_0.category_name where p1_0.id=2
+2024-06-26T15:23:05.159249Z	   28 Query	commit
+2024-06-26T15:23:05.160389Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:05.161236Z	   28 Query	set session transaction read write
+2024-06-26T15:23:10.779602Z	   28 Query	set session transaction read only
+2024-06-26T15:23:10.782504Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:10.787059Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:23:10.795587Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:23:10.802994Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:23:10.809034Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:23:10.816995Z	   28 Query	commit
+2024-06-26T15:23:10.821221Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:10.827083Z	   28 Query	set session transaction read write
+2024-06-26T15:23:13.205846Z	   28 Query	set session transaction read only
+2024-06-26T15:23:13.209949Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:13.213001Z	   28 Query	select p1_0.id,c1_0.name,c1_0.description,p1_0.created,p1_0.location,p1_0.title from posts p1_0 left join categories c1_0 on c1_0.name=p1_0.category_name where p1_0.id=4
+2024-06-26T15:23:13.216091Z	   28 Query	commit
+2024-06-26T15:23:13.217719Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:13.218990Z	   28 Query	set session transaction read write
+2024-06-26T15:23:16.612714Z	   28 Query	set session transaction read only
+2024-06-26T15:23:16.614148Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:16.616874Z	   28 Query	select p1_0.id,c1_0.name,c1_0.description,p1_0.created,p1_0.location,p1_0.title from posts p1_0 left join categories c1_0 on c1_0.name=p1_0.category_name where p1_0.id=4
+2024-06-26T15:23:16.618738Z	   28 Query	commit
+2024-06-26T15:23:16.619887Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:16.620983Z	   28 Query	set session transaction read write
+2024-06-26T15:23:19.261510Z	   28 Query	set session transaction read only
+2024-06-26T15:23:19.262998Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:19.265863Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:23:19.268294Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:23:19.270713Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:23:19.272792Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:23:19.274740Z	   28 Query	commit
+2024-06-26T15:23:19.276598Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:19.278445Z	   28 Query	set session transaction read write
+2024-06-26T15:23:20.923966Z	   28 Query	set session transaction read only
+2024-06-26T15:23:20.925576Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:20.928808Z	   28 Query	select p1_0.id,c1_0.name,c1_0.description,p1_0.created,p1_0.location,p1_0.title from posts p1_0 left join categories c1_0 on c1_0.name=p1_0.category_name where p1_0.id=4
+2024-06-26T15:23:20.931733Z	   28 Query	commit
+2024-06-26T15:23:20.933843Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:20.935781Z	   28 Query	set session transaction read write
+2024-06-26T15:23:24.139157Z	   28 Query	set session transaction read only
+2024-06-26T15:23:24.140787Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:24.144234Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:23:24.146944Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:23:24.149360Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:23:24.151673Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:23:24.153269Z	   28 Query	commit
+2024-06-26T15:23:24.154152Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:24.154976Z	   28 Query	set session transaction read write
+2024-06-26T15:23:25.995780Z	   28 Query	set session transaction read only
+2024-06-26T15:23:25.996965Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:25.999058Z	   28 Query	select p1_0.id,c1_0.name,c1_0.description,p1_0.created,p1_0.location,p1_0.title from posts p1_0 left join categories c1_0 on c1_0.name=p1_0.category_name where p1_0.id=3
+2024-06-26T15:23:26.000823Z	   28 Query	commit
+2024-06-26T15:23:26.001793Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:26.002791Z	   28 Query	set session transaction read write
+2024-06-26T15:23:35.408834Z	   28 Query	set session transaction read only
+2024-06-26T15:23:35.411234Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:35.414064Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:23:35.416288Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:23:35.418200Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:23:35.419660Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:23:35.420895Z	   28 Query	commit
+2024-06-26T15:23:35.421508Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:35.422114Z	   28 Query	set session transaction read write
+2024-06-26T15:23:35.848937Z	   28 Query	set session transaction read only
+2024-06-26T15:23:35.850361Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:35.852224Z	   28 Query	select p1_0.id,c1_0.name,c1_0.description,p1_0.created,p1_0.location,p1_0.title from posts p1_0 left join categories c1_0 on c1_0.name=p1_0.category_name where p1_0.id=1
+2024-06-26T15:23:35.853995Z	   28 Query	commit
+2024-06-26T15:23:35.854979Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:35.855927Z	   28 Query	set session transaction read write
+2024-06-26T15:23:37.563802Z	   28 Query	set session transaction read only
+2024-06-26T15:23:37.565211Z	   28 Query	SET autocommit=0
+2024-06-26T15:23:37.568486Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:23:37.570829Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:23:37.573547Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:23:37.577580Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:23:37.580390Z	   28 Query	commit
+2024-06-26T15:23:37.582131Z	   28 Query	SET autocommit=1
+2024-06-26T15:23:37.583919Z	   28 Query	set session transaction read write
+2024-06-26T15:24:36.764552Z	   28 Query	set session transaction read only
+2024-06-26T15:24:36.767090Z	   28 Query	SET autocommit=0
+2024-06-26T15:24:36.770388Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:24:36.772434Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:24:36.775329Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:24:36.779003Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:24:36.781577Z	   28 Query	commit
+2024-06-26T15:24:36.782930Z	   28 Query	SET autocommit=1
+2024-06-26T15:24:36.784314Z	   28 Query	set session transaction read write
+2024-06-26T15:24:46.266362Z	   28 Query	set session transaction read only
+2024-06-26T15:24:46.268593Z	   28 Query	SET autocommit=0
+2024-06-26T15:24:46.272794Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:24:46.275863Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:24:46.279420Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:24:46.282845Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:24:46.285858Z	   28 Query	commit
+2024-06-26T15:24:46.288013Z	   28 Query	SET autocommit=1
+2024-06-26T15:24:46.289434Z	   28 Query	set session transaction read write
+2024-06-26T15:25:24.623170Z	   28 Query	set session transaction read only
+2024-06-26T15:25:24.624887Z	   28 Query	SET autocommit=0
+2024-06-26T15:25:24.630372Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:25:24.633873Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:25:24.638404Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:25:24.642026Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:25:24.646283Z	   28 Query	commit
+2024-06-26T15:25:24.647799Z	   28 Query	SET autocommit=1
+2024-06-26T15:25:24.649408Z	   28 Query	set session transaction read write
+2024-06-26T15:33:30.601809Z	   28 Query	set session transaction read only
+2024-06-26T15:33:30.603703Z	   28 Query	SET autocommit=0
+2024-06-26T15:33:30.607202Z	   28 Query	select p1_0.id,p1_0.category_name,p1_0.created,p1_0.location,p1_0.title from posts p1_0 order by p1_0.id limit 0,10
+2024-06-26T15:33:30.611065Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Programming'
+2024-06-26T15:33:30.614322Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Random'
+2024-06-26T15:33:30.617523Z	   28 Query	select c1_0.name,c1_0.description from categories c1_0 where c1_0.name='Math'
+2024-06-26T15:33:30.619714Z	   28 Query	commit
+2024-06-26T15:33:30.620801Z	   28 Query	SET autocommit=1
+2024-06-26T15:33:30.622139Z	   28 Query	set session transaction read write
