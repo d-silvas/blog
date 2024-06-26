@@ -1,15 +1,13 @@
 <div class="post-wrapper">
-  @if(post$|async; as post){
   <mat-card class="post">
     <div class="heading">
       <h1 class="title">
-        {{ post.title }}
+        {{ (post$ | async)?.title }}
       </h1>
       <div class="created">
-        {{ post.created | date }}
+        {{ (post$ | async)?.created | date }}
       </div>
     </div>
-    <div class="content" [innerHTML]="post.content | safeHtml"></div>
+    <div class="content" #postContent></div>
   </mat-card>
-  }
 </div>
