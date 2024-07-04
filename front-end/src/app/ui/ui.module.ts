@@ -12,9 +12,10 @@ import { RouterModule } from '@angular/router';
 
 import { PipesModule } from './pipes/pipes.module';
 import { TopbarComponent } from './topbar/topbar.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [TopbarComponent],
+  declarations: [TopbarComponent, CardComponent],
   imports: [CommonModule, MatButtonModule, MatIconModule, RouterModule],
   exports: [
     MatIconModule,
@@ -27,6 +28,7 @@ import { TopbarComponent } from './topbar/topbar.component';
     MatTabsModule,
     PipesModule,
     TopbarComponent,
+    CardComponent,
   ],
 })
 export class UiModule {}

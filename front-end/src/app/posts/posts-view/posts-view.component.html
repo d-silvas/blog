@@ -1,5 +1,5 @@
 <div class="post-wrapper">
-  <mat-card class="post">
+  <app-card class="post">
     <div class="heading">
       <h1 class="title">
         {{ (post$ | async)?.title }}
@@ -9,5 +9,5 @@
       </div>
     </div>
     <div class="content" #postContent></div>
-  </mat-card>
+  </app-card>
 </div>

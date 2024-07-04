@@ -1,19 +1,19 @@
 <div class="posts">
-  <mat-card
-    class="post"
-    (click)="onPostSelected(post)"
-    *ngFor="let post of posts$ | async"
-  >
-    <div class="heading">
-      <h1 class="title">
-        {{ post.title }}
-      </h1>
-      <div class="created">
-        {{ post.created | date }}
+  @for (post of posts$ | async; track post) {
+    <app-card class="cursor-pointer" (click)="onPostSelected(post)">
+      <div class="flex w-full flex-col flex-nowrap gap-3">
+        <div class="flex flex-row flex-wrap items-center justify-between">
+          <h1 class="font-bold text-blue-600">
+            {{ post.title }}
+          </h1>
+          <div class="text-xs uppercase">
+            {{ post.created | date }}
+          </div>
+        </div>
+        <div class="content">{{ post.summary | stripHtml }}</div>
       </div>
-    </div>
-    <div class="content">{{ post.summary | stripHtml }}</div>
-  </mat-card>
+    </app-card>
+  }
 </div>
 
 <mat-card>
