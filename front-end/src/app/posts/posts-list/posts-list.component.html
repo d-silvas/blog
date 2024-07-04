@@ -1,4 +1,4 @@
-<div class="posts">
+<div class="flex w-full flex-col flex-nowrap gap-3">
   @for (post of posts$ | async; track post) {
     <app-card class="cursor-pointer" (click)="onPostSelected(post)">
       <div class="flex w-full flex-col flex-nowrap gap-3">
@@ -6,23 +6,22 @@
           <h1 class="font-bold text-blue-600">
             {{ post.title }}
           </h1>
-          <div class="text-xs uppercase">
+          <div class="text-xs uppercase text-gray-500">
             {{ post.created | date }}
           </div>
         </div>
-        <div class="content">{{ post.summary | stripHtml }}</div>
+        <div>{{ post.summary | stripHtml }}</div>
       </div>
     </app-card>
   }
-</div>
 
-<mat-card>
-  <mat-paginator
-    [pageIndex]="pageIndex$ | async"
-    [pageSize]="size$ | async"
-    [length]="totalElements$ | async"
-    [showFirstLastButtons]="true"
-    (page)="paginateList($event)"
-  >
-  </mat-paginator>
-</mat-card>
+  <app-card>
+    <app-paginator
+      [pageIndex]="pageIndex$ | async"
+      [pageSize]="size$ | async"
+      [totalElements]="totalElements$ | async"
+      (page)="paginateList($event)"
+    >
+    </app-paginator>
+  </app-card>
+</div>
