@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { select, Store } from '@ngrx/store';
 import { filter, Observable, Subject, takeUntil } from 'rxjs';
@@ -25,13 +26,14 @@ export class PostsViewComponent implements OnInit, OnDestroy {
 
   post$: Observable<Post | null>;
 
-  private readonly _destroy$ = new Subject<void>();
-
   constructor(
     private readonly _store: Store,
-    private readonly _activatedRoute: ActivatedRoute
+    private readonly _activatedRoute: ActivatedRoute,
   ) {
-    this.post$ = this._store.pipe(select(postsSelectors.getPost));
+    this.post$ = this._store.pipe(
+      select(postsSelectors.getPost),
+      takeUntilDestroyed(),
+    );
   }
 
   ngOnInit() {
@@ -41,36 +43,18 @@ export class PostsViewComponent implements OnInit, OnDestroy {
         this._store.dispatch(postsViewActions.loadPost({ id }));
       }
     });
-    this.post$
-      .pipe(filter(Boolean), takeUntil(this._destroy$))
-      .subscribe((p) => {
-        console.log(p, this.postContent);
-        if (p && this.postContent) {
-          this.postContent.nativeElement.innerHTML = p.content;
-          // Execute all script tags that were in the post contents
-          // See https://stackoverflow.com/questions/2592092/executing-script-elements-inserted-with-innerhtml
-          // Yes this is a security vulnerability
-          Array.from(
-            this.postContent.nativeElement.querySelectorAll('script')
-          ).forEach((oldScriptEl: any) => {
-            const newScriptEl = document.createElement('script');
-
-            Array.from(oldScriptEl.attributes).forEach((attr: any) => {
-              newScriptEl.setAttribute(attr.name, attr.value);
-            });
-
-            const scriptText = document.createTextNode(oldScriptEl.innerHTML);
-            newScriptEl.appendChild(scriptText);
-
-            oldScriptEl.parentNode.replaceChild(newScriptEl, oldScriptEl);
-          });
-        }
-      });
+    this.post$.pipe(filter(Boolean)).subscribe((p) => {
+      // console.log(p, this.postContent);
+      if (p && this.postContent) {
+        // this.postContent.nativeElement.innerHTML = p.content;
+        // setTimeout(() => {
+        //   console.log((window as any).MathJax);
+        // }, 2000);
+      }
+    });
   }
 
   ngOnDestroy() {
-    this._destroy$.next();
-    this._destroy$.complete();
     this._store.dispatch(postsViewActions.reset());
   }
 }
