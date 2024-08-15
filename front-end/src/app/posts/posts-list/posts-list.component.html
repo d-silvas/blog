@@ -1,28 +1,27 @@
-<div class="posts">
-  <mat-card
-    class="post"
-    (click)="onPostSelected(post)"
-    *ngFor="let post of posts$ | async"
-  >
-    <div class="heading">
-      <h1 class="title">
-        {{ post.title }}
-      </h1>
-      <div class="created">
-        {{ post.created | date }}
+<div class="flex w-full flex-col flex-nowrap gap-3">
+  @for (post of posts$ | async; track post) {
+    <app-card class="cursor-pointer" (click)="onPostSelected(post)">
+      <div class="flex w-full flex-col flex-nowrap gap-3">
+        <div class="flex flex-row flex-wrap items-center justify-between">
+          <h1 class="font-bold text-blue-600">
+            {{ post.title }}
+          </h1>
+          <div class="text-xs uppercase text-gray-500">
+            {{ post.created | date }}
+          </div>
+        </div>
+        <div>{{ post.summary | stripHtml }}</div>
       </div>
-    </div>
-    <div class="content">{{ post.summary | stripHtml }}</div>
-  </mat-card>
-</div>
+    </app-card>
+  }
 
-<mat-card>
-  <mat-paginator
-    [pageIndex]="pageIndex$ | async"
-    [pageSize]="size$ | async"
-    [length]="totalElements$ | async"
-    [showFirstLastButtons]="true"
-    (page)="paginateList($event)"
-  >
-  </mat-paginator>
-</mat-card>
+  <app-card>
+    <app-paginator
+      [pageIndex]="pageIndex$ | async"
+      [pageSize]="size$ | async"
+      [totalElements]="totalElements$ | async"
+      (page)="paginateList($event)"
+    >
+    </app-paginator>
+  </app-card>
+</div>

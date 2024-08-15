@@ -1,5 +1,5 @@
 <div class="post-wrapper">
-  <mat-card class="post">
+  <app-card class="post">
     <div class="heading">
       <h1 class="title">
         {{ (post$ | async)?.title }}
@@ -8,6 +8,9 @@
         {{ (post$ | async)?.created | date }}
       </div>
     </div>
-    <div class="content" #postContent></div>
-  </mat-card>
+    @if (post$ | async; as post) {
+      <div class="content" [appMathJax]="post.content"></div>
+    }
+    <!-- <div class="content" #postContent></div> -->
+  </app-card>
 </div>
