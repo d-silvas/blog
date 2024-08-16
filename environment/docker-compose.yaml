@@ -1,8 +1,8 @@
 version: "3.7"
-name: dev_davidsilva_blog_db
+name: dev-davidsilva-blog
 services:
   database:
-    container_name: dev_davidsilva_blog_db
+    container_name: dev-davidsilva-blog-db
     image: mysql:8
     environment:
       MYSQL_USER: user
@@ -17,15 +17,47 @@ services:
         source: blog_db_volume
         target: /var/lib/mysql
       - ./database:/database
-    # log-bin-trust-function-creators
-    #   - Fix for errors that started showing after the MySQL 8 update
-    #   - See https://stackoverflow.com/questions/56389698/why-super-privileges-are-disabled-when-binary-logging-option-is-on
-    # explicit_defaults_for_timestamp
-    #   - Another fix for MySQL 8.
-#    command: "--log-bin-trust-function-creators=1 --explicit_defaults_for_timestamp=0"
-    # Use the following if you want sql statements to be logged to a file (./database/mysql.log under this same directory)
     command: "--log-bin-trust-function-creators=1 --explicit_defaults_for_timestamp=0 --general-log=1 --general-log-file=/database/mysql.log"
+    networks:
+      - dev-davidsilva-blog-network
+  mysqld-exporter:
+    container_name: dev-davidsilva-blog-mysqld-exporter
+    image: prom/mysqld-exporter
+    environment:
+      MYSQLD_EXPORTER_PASSWORD: "rootpassword"
+    command:
+      - --collect.info_schema.tablestats
+      - --mysqld.address=database:3306
+      - --mysqld.username=root
+    ports:
+      - 9104:9104
+    depends_on:
+      - database
+    networks:
+      - dev-davidsilva-blog-network
+  prometheus:
+    image: prom/prometheus
+    container_name: dev-davidsilva-blog-prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    depends_on:
+      - mysqld-exporter
+    networks:
+      - dev-davidsilva-blog-network
+
 volumes:
   blog_db_volume:
     external: false
-    name: dev_davidsilva_blog_db
+    name: dev-davidsilva-blog-db-volume
+  prometheus_data:
+    external: false
+    name: dev-davidsilva-blog-prometheus-data
+
+networks:
+  dev-davidsilva-blog-network:
+    driver: bridge
+    name: dev-davidsilva-blog-network
