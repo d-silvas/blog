@@ -1,0 +1,33 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "title": "Type narrowing in Typescript",
+      "created": "2020-10-01T12:34:56Z",
+      "summary": "<p>\n    Very often we need to be able to differentiate between Typescript interfaces\n    which have some properties in common. This is known as \"type narrowing\". We\n    are going to cover 3 basic ways of performing type narrowing in Typescript.\n</p>\n\n<p>Let's start with the following example:</p>\n\n<pre class=\"typescript\">\ninterface Vehicle {\n    weight: number;\n    wheels?: number;\n    class?: 'A' | '1' | '2' |'3';\n}</pre\n>\n\n<p>\n    In our application we have different vehicles. For trucks, for "
+    },
+    {
+      "id": 2,
+      "title": "Cool music",
+      "created": "2024-02-19T17:45:00Z",
+      "summary": "<p>\n    Here is some cool music I have found\n</p>\n\n<h2>Reggae-Rap</h2>\n\n<h3>Dub Pistols and Rodney P</h3>\n<ol>\n    <li>Peace of Mind</li>\n    <iframe allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n            allowfullscreen frameborder=\"0\"\n            height=\"315\" src=\"https://www.youtube.com/embed/H4Gd0WG00-Y?si=8lASmqdLHf86i2OA\"\n            title=\"YouTube video player\"\n            width=\"560\"></iframe>\n\n    <li>Rock Steady</li>\n    "
+    },
+    {
+      "id": 3,
+      "title": "Probability definitions",
+      "created": "2024-05-10T17:45:00Z",
+      "summary": "<h1>Probability definitions</h1>\n\n<p>Let \\(\\Omega\\) be a set.</p>\n\n<p>\n  <strong>Def 1.</strong> A <strong>\\(\\sigma\\)-field</strong> is a collection\n  \\(\\mathcal{F}\\) of subsets of \\(\\Omega\\) such that \\(\\emptyset \\in\n  \\mathcal{F}\\), and it's closed under complementation and under countable\n  unions.\n</p>\n\n<p>\n  <strong>Def 2.</strong> The sets that are members of \\(\\mathcal{F}\\) are said\n  to be <strong>measurable with respect to \\(\\mathcal{F}\\)</strong>, or just\n  <strong>measurable</strong> "
+    },
+    {
+      "id": 4,
+      "title": "Ross' Introduction to Probability Models - Ex 3.11",
+      "created": "2024-05-10T17:55:00Z",
+      "summary": "<h1>Ross' Introduction to Probability Models - Ex 3.11</h1>\n\n<p>\n  <strong>\n    A coin, having probability p of coming up heads, is to be successively\n    flipped until the first head appears. What is the expected number of flips\n    required?\n  </strong>\n</p>\n\n<p>\n  First of all, let us define a probability space \\( (\\Omega, \\mathcal{F}, P)\\)\n  for this problem.\n</p>\n\n<ul>\n  <li>\n    \\( \\Omega = \\left\\{ (w_1, w_2, w_3, \\ldots) \\mid\n    w_i \\in \\{0, 1\\}, \\, i = 1, 2, \\ldots \\right\\}\\). Each of t"
+    }
+  ],
+  "page": 0,
+  "size": 10,
+  "totalElements": 4,
+  "totalPages": 1,
+  "isLast": true
+}

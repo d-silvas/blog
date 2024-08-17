@@ -1,0 +1,5 @@
+{
+  "timestamp": "2024-08-17T07:52:06.305+00:00",
+  "message": "No property 'DYNV0g8X' found for type 'Post'",
+  "details": "uri=/api/v1/posts"
+}
