@@ -12,15 +12,9 @@ import { PipesModule } from './pipes/pipes.module';
 import { TopbarComponent } from './topbar/topbar.component';
 import { CardComponent } from './card/card.component';
 import { PaginatorComponent } from './paginator/paginator.component';
-import { MathJaxDirective } from './mathjax/mathjax.directive';
 
 @NgModule({
-  declarations: [
-    TopbarComponent,
-    CardComponent,
-    PaginatorComponent,
-    MathJaxDirective,
-  ],
+  declarations: [TopbarComponent, CardComponent, PaginatorComponent],
   imports: [CommonModule, MatButtonModule, MatIconModule, RouterModule],
   exports: [
     MatIconModule,
@@ -33,7 +27,6 @@ import { MathJaxDirective } from './mathjax/mathjax.directive';
     TopbarComponent,
     CardComponent,
     PaginatorComponent,
-    MathJaxDirective,
   ],
 })
 export class UiModule {}

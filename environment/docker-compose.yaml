@@ -48,6 +48,21 @@ services:
       - mysqld-exporter
     networks:
       - dev-davidsilva-blog-network
+  grafana:
+    image: grafana/grafana:latest
+    container_name: dev-davidsilva-blog-grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=secret
+      - GF_ALERTING_EXECUTE_ALERTS=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    networks:
+      - dev-davidsilva-blog-network
+
 
 volumes:
   blog_db_volume:
@@ -56,6 +71,9 @@ volumes:
   prometheus_data:
     external: false
     name: dev-davidsilva-blog-prometheus-data
+  grafana_data:
+    external: false
+    name: dev-davidsilva-blog-grafana-data
 
 networks:
   dev-davidsilva-blog-network:

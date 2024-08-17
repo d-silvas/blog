@@ -9,8 +9,7 @@
       </div>
     </div>
     @if (post$ | async; as post) {
-      <div class="content" [appMathJax]="post.content"></div>
+      <div class="content" [innerHTML]="post.content | safeHtml"></div>
     }
-    <!-- <div class="content" #postContent></div> -->
   </app-card>
 </div>
